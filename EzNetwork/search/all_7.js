@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['listen',['listen',['../classeznet_1_1Server.html#abd9ab75927dfd659ce5915310f70a00c',1,'eznet::Server::listen(socket_list_t::iterator listener, int backlog, int af_family_preference=AF_INET6)'],['../classeznet_1_1Server.html#a70e222729db00569c88ed0dd5dce6e44',1,'eznet::Server::listen(int backlog, int af_family_preference=AF_INET6)'],['../classeznet_1_1Socket.html#a2381ee0067459847adf533fe97fdf730',1,'eznet::Socket::listen()']]],
-  ['listeners',['listeners',['../classeznet_1_1Server.html#a1758341f10371090715f69fcdb39b72e',1,'eznet::Server']]],
-  ['listenersbegin',['listenersBegin',['../classeznet_1_1Server.html#a59e4093cc902a0e0d9066405141ad89c',1,'eznet::Server']]],
-  ['listenersend',['listenersEnd',['../classeznet_1_1Server.html#a8e907d4fa99a714dba7df18d5d8da6b5',1,'eznet::Server']]]
+  ['ibuf',['ibuf',['../classeznet_1_1socket__streambuf.html#a322cac01d44245affe1607f9f24e9f89',1,'eznet::socket_streambuf']]],
+  ['init',['init',['../classeznet_1_1Socket.html#ac5bd3177d12aeea348ab30c4494a08b7',1,'eznet::Socket']]],
+  ['int_5ftype',['int_type',['../classeznet_1_1socket__streambuf.html#aa615a3a074e48165ec182e209e784056',1,'eznet::socket_streambuf']]],
+  ['isconnectrequest',['isConnectRequest',['../classeznet_1_1Server.html#a7e15d6192a9e7d366f844daf60f6652a',1,'eznet::Server']]],
+  ['isexcept',['isExcept',['../classeznet_1_1Server.html#a0c1b364882af1603daac8b01b27245d1',1,'eznet::Server']]],
+  ['isread',['isRead',['../classeznet_1_1Server.html#ad61fda06b150941f4002cae2d7ee0443',1,'eznet::Server']]],
+  ['iswrite',['isWrite',['../classeznet_1_1Server.html#a715c101f37ef2e79bf2026df5186804a',1,'eznet::Server']]]
 ];
