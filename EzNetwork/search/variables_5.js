@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newsockets',['newSockets',['../classeznet_1_1Server.html#a7462c58755c67496c2c3c24bf8ad802f',1,'eznet::Server']]]
+  ['ibuf',['ibuf',['../classeznet_1_1socket__streambuf.html#a322cac01d44245affe1607f9f24e9f89',1,'eznet::socket_streambuf']]]
 ];

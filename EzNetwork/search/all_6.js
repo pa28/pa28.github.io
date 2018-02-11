@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hints',['hints',['../classeznet_1_1Socket.html#a827a05adb3bfe6418fa692aa27016cc5',1,'eznet::Socket']]]
+  ['hints',['hints',['../classeznet_1_1Socket.html#a7ff244a81815a37b5e1b764c457b1add',1,'eznet::Socket']]]
 ];

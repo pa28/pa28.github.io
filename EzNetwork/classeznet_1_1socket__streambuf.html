@@ -104,9 +104,9 @@ typedef traits_type::int_type&#160;</td><td class="memItemRight" valign="bottom"
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a756fee3697dc9fb49169088905a6b13f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1socket__streambuf.html#a756fee3697dc9fb49169088905a6b13f">socket_streambuf</a> (<a class="el" href="classeznet_1_1Socket.html">Socket</a> &amp;sock)</td></tr>
-<tr class="memdesc:a756fee3697dc9fb49169088905a6b13f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a socket stream buffer interfaced to a <a class="el" href="classeznet_1_1Socket.html">Socket</a> object file descriptor.  <a href="#a756fee3697dc9fb49169088905a6b13f">More...</a><br /></td></tr>
-<tr class="separator:a756fee3697dc9fb49169088905a6b13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1aac9ee5cf1d24fc393d2dc86a129de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1socket__streambuf.html#ae1aac9ee5cf1d24fc393d2dc86a129de">socket_streambuf</a> (int sock)</td></tr>
+<tr class="memdesc:ae1aac9ee5cf1d24fc393d2dc86a129de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a socket stream buffer interfaced to a <a class="el" href="classeznet_1_1Socket.html">Socket</a> object file descriptor.  <a href="#ae1aac9ee5cf1d24fc393d2dc86a129de">More...</a><br /></td></tr>
+<tr class="separator:ae1aac9ee5cf1d24fc393d2dc86a129de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -130,13 +130,16 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a9859ecbfe996953798ef403ea5157c28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classeznet_1_1socket__streambuf.html#aa615a3a074e48165ec182e209e784056">int_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1socket__streambuf.html#a9859ecbfe996953798ef403ea5157c28">underflow</a> () override</td></tr>
 <tr class="memdesc:a9859ecbfe996953798ef403ea5157c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when there is not enough data in the input buffer to satisfy an request.  <a href="#a9859ecbfe996953798ef403ea5157c28">More...</a><br /></td></tr>
 <tr class="separator:a9859ecbfe996953798ef403ea5157c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18da8a0258bf100cead50fb0f56c7e12"><td class="memItemLeft" align="right" valign="top">streamsize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1socket__streambuf.html#a18da8a0258bf100cead50fb0f56c7e12">showmanyc</a> () override</td></tr>
+<tr class="memdesc:a18da8a0258bf100cead50fb0f56c7e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to determine how many characters are availalbe in the input stream without blocking.  <a href="#a18da8a0258bf100cead50fb0f56c7e12">More...</a><br /></td></tr>
+<tr class="separator:a18da8a0258bf100cead50fb0f56c7e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a2d26ae0afa470db78bdf1f0c414aec61"><td class="memItemLeft" align="right" valign="top"><a id="a2d26ae0afa470db78bdf1f0c414aec61"></a>
-<a class="el" href="classeznet_1_1Socket.html">Socket</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1socket__streambuf.html#a2d26ae0afa470db78bdf1f0c414aec61">socket</a></td></tr>
-<tr class="memdesc:a2d26ae0afa470db78bdf1f0c414aec61"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classeznet_1_1Socket.html">Socket</a> object this buffer interfaces with. <br /></td></tr>
-<tr class="separator:a2d26ae0afa470db78bdf1f0c414aec61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa183bee11b37aef00710fd332811e0d2"><td class="memItemLeft" align="right" valign="top"><a id="aa183bee11b37aef00710fd332811e0d2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1socket__streambuf.html#aa183bee11b37aef00710fd332811e0d2">sockfd</a></td></tr>
+<tr class="memdesc:aa183bee11b37aef00710fd332811e0d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classeznet_1_1Socket.html">Socket</a> object this buffer interfaces with. <br /></td></tr>
+<tr class="separator:aa183bee11b37aef00710fd332811e0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad06c5bccb94563464a574a7c3815825e"><td class="memItemLeft" align="right" valign="top"><a id="ad06c5bccb94563464a574a7c3815825e"></a>
 <a class="el" href="classeznet_1_1socket__streambuf.html#a6e480fc7e3dbf566f9c4fefbcab8be6b">char_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1socket__streambuf.html#ad06c5bccb94563464a574a7c3815825e">obuf</a> [<a class="el" href="classeznet_1_1socket__streambuf.html#a10118cf2b7878778d61b939e67c44017">buffer_size</a>]</td></tr>
 <tr class="memdesc:ad06c5bccb94563464a574a7c3815825e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The output stream buffer. <br /></td></tr>
@@ -149,8 +152,8 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A streambuf which abstracts the socket file descriptor allowing the use of standard iostreams. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a756fee3697dc9fb49169088905a6b13f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a756fee3697dc9fb49169088905a6b13f">&#9670;&nbsp;</a></span>socket_streambuf()</h2>
+<a id="ae1aac9ee5cf1d24fc393d2dc86a129de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1aac9ee5cf1d24fc393d2dc86a129de">&#9670;&nbsp;</a></span>socket_streambuf()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +164,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">eznet::socket_streambuf::socket_streambuf </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classeznet_1_1Socket.html">Socket</a> &amp;&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>sock</em></td><td>)</td>
           <td></td>
         </tr>
@@ -216,6 +219,34 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the input character </dd></dl>
+
+</div>
+</div>
+<a id="a18da8a0258bf100cead50fb0f56c7e12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18da8a0258bf100cead50fb0f56c7e12">&#9670;&nbsp;</a></span>showmanyc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">streamsize eznet::socket_streambuf::showmanyc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Try to determine how many characters are availalbe in the input stream without blocking. </p>
+<dl class="section return"><dt>Returns</dt><dd>&gt;0 the number of characters know to be available, 0 no information, -1 sequence unavailable </dd></dl>
 
 </div>
 </div>
