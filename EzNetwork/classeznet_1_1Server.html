@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>EzNetwork: eznet::Server Class Reference</title>
+<title>EzNetwork: eznet::Server&lt; Policy &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,7 +68,7 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classeznet_1_1Server-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">eznet::Server Class Reference</div>  </div>
+<div class="title">eznet::Server&lt; Policy &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -76,98 +76,88 @@ $(function() {
  <a href="classeznet_1_1Server.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="server_8h_source.html">server.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for eznet::Server&lt; Policy &gt;:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classeznet_1_1Server.png" usemap="#eznet::Server_3C_20Policy_20_3E_map" alt=""/>
+  <map id="eznet::Server_3C_20Policy_20_3E_map" name="eznet::Server_3C_20Policy_20_3E_map">
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7a0be9fc291614bfc5cf16ed3c804a36"><td class="memItemLeft" align="right" valign="top"><a id="a7a0be9fc291614bfc5cf16ed3c804a36"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a7a0be9fc291614bfc5cf16ed3c804a36">Server</a> ()=default</td></tr>
-<tr class="memdesc:a7a0be9fc291614bfc5cf16ed3c804a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor) <br /></td></tr>
-<tr class="separator:a7a0be9fc291614bfc5cf16ed3c804a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af918a1cc3b285de5c92dd473eabd5c07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#af918a1cc3b285de5c92dd473eabd5c07">select</a> (SelectClients selectClients=SC_All, struct timeval *timeout=nullptr)</td></tr>
-<tr class="memdesc:af918a1cc3b285de5c92dd473eabd5c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call select on all current sockets associated with the server.  <a href="#af918a1cc3b285de5c92dd473eabd5c07">More...</a><br /></td></tr>
-<tr class="separator:af918a1cc3b285de5c92dd473eabd5c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e78ffdf64ed68d4598c0e9b05baa11c"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a7e78ffdf64ed68d4598c0e9b05baa11c">accept</a> (socket_list_t::iterator &amp;listener)</td></tr>
-<tr class="memdesc:a7e78ffdf64ed68d4598c0e9b05baa11c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept a connection request on a listener socket, add the accepted connection to the connection list.  <a href="#a7e78ffdf64ed68d4598c0e9b05baa11c">More...</a><br /></td></tr>
-<tr class="separator:a7e78ffdf64ed68d4598c0e9b05baa11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e15d6192a9e7d366f844daf60f6652a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a7e15d6192a9e7d366f844daf60f6652a">isConnectRequest</a> (socket_list_t::iterator &amp;listener)</td></tr>
-<tr class="memdesc:a7e15d6192a9e7d366f844daf60f6652a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determin if a listener socket has been selected due to a connection request.  <a href="#a7e15d6192a9e7d366f844daf60f6652a">More...</a><br /></td></tr>
-<tr class="separator:a7e15d6192a9e7d366f844daf60f6652a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad61fda06b150941f4002cae2d7ee0443"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#ad61fda06b150941f4002cae2d7ee0443">isRead</a> (socket_list_t::iterator &amp;c)</td></tr>
-<tr class="memdesc:ad61fda06b150941f4002cae2d7ee0443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determin if a socket is selected for read.  <a href="#ad61fda06b150941f4002cae2d7ee0443">More...</a><br /></td></tr>
-<tr class="separator:ad61fda06b150941f4002cae2d7ee0443"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a715c101f37ef2e79bf2026df5186804a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a715c101f37ef2e79bf2026df5186804a">isWrite</a> (socket_list_t::iterator &amp;c)</td></tr>
-<tr class="memdesc:a715c101f37ef2e79bf2026df5186804a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determin if a socket is selected for write.  <a href="#a715c101f37ef2e79bf2026df5186804a">More...</a><br /></td></tr>
-<tr class="separator:a715c101f37ef2e79bf2026df5186804a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c1b364882af1603daac8b01b27245d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a0c1b364882af1603daac8b01b27245d1">isExcept</a> (socket_list_t::iterator &amp;c)</td></tr>
-<tr class="memdesc:a0c1b364882af1603daac8b01b27245d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if a socket is selected for exception.  <a href="#a0c1b364882af1603daac8b01b27245d1">More...</a><br /></td></tr>
-<tr class="separator:a0c1b364882af1603daac8b01b27245d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe3b471ee78ff5def039bd31feeb4d20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#afe3b471ee78ff5def039bd31feeb4d20">isSelected</a> (socket_list_t::iterator &amp;listener)</td></tr>
-<tr class="memdesc:afe3b471ee78ff5def039bd31feeb4d20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deterimin if a socket is selected for any state.  <a href="#afe3b471ee78ff5def039bd31feeb4d20">More...</a><br /></td></tr>
-<tr class="separator:afe3b471ee78ff5def039bd31feeb4d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dab215f3fa46cd96e130090f13b049e"><td class="memItemLeft" align="right" valign="top"><a id="a3dab215f3fa46cd96e130090f13b049e"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a3dab215f3fa46cd96e130090f13b049e">begin</a> ()</td></tr>
-<tr class="memdesc:a3dab215f3fa46cd96e130090f13b049e"><td class="mdescLeft">&#160;</td><td class="mdescRight">first connected socket iterator <br /></td></tr>
-<tr class="separator:a3dab215f3fa46cd96e130090f13b049e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0b9d298be96e9ea7ab6bd53b8ddb0f2"><td class="memItemLeft" align="right" valign="top"><a id="ad0b9d298be96e9ea7ab6bd53b8ddb0f2"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#ad0b9d298be96e9ea7ab6bd53b8ddb0f2">end</a> ()</td></tr>
-<tr class="memdesc:ad0b9d298be96e9ea7ab6bd53b8ddb0f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">last connected socket iterator <br /></td></tr>
-<tr class="separator:ad0b9d298be96e9ea7ab6bd53b8ddb0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a296c538e8be91c129113d049a7443695"><td class="memItemLeft" align="right" valign="top"><a id="a296c538e8be91c129113d049a7443695"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a296c538e8be91c129113d049a7443695">cbegin</a> () const</td></tr>
-<tr class="memdesc:a296c538e8be91c129113d049a7443695"><td class="mdescLeft">&#160;</td><td class="mdescRight">const first connected socket iterator <br /></td></tr>
-<tr class="separator:a296c538e8be91c129113d049a7443695"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5e5f8a2105603817f8d02b43e0c0d8c"><td class="memItemLeft" align="right" valign="top"><a id="af5e5f8a2105603817f8d02b43e0c0d8c"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#af5e5f8a2105603817f8d02b43e0c0d8c">cend</a> () const</td></tr>
-<tr class="memdesc:af5e5f8a2105603817f8d02b43e0c0d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">const last connected socket iterator <br /></td></tr>
-<tr class="separator:af5e5f8a2105603817f8d02b43e0c0d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa65cc2d55ebf22de9dea800cd6bc3f42"><td class="memItemLeft" align="right" valign="top"><a id="aa65cc2d55ebf22de9dea800cd6bc3f42"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#aa65cc2d55ebf22de9dea800cd6bc3f42">size</a> () const</td></tr>
-<tr class="memdesc:aa65cc2d55ebf22de9dea800cd6bc3f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">the number of connected sockets <br /></td></tr>
-<tr class="separator:aa65cc2d55ebf22de9dea800cd6bc3f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40dab04e2a2ae4b4a72ba9b9494eaabf"><td class="memItemLeft" align="right" valign="top"><a id="a40dab04e2a2ae4b4a72ba9b9494eaabf"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a40dab04e2a2ae4b4a72ba9b9494eaabf">empty</a> () const</td></tr>
-<tr class="memdesc:a40dab04e2a2ae4b4a72ba9b9494eaabf"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if there are no connected sockets <br /></td></tr>
-<tr class="separator:a40dab04e2a2ae4b4a72ba9b9494eaabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cdd66388b27644efa4a1d6319ecc070"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a8cdd66388b27644efa4a1d6319ecc070">pushBack</a> (unique_ptr&lt; <a class="el" href="classeznet_1_1Socket.html">Socket</a> &gt; socketPtr)</td></tr>
-<tr class="separator:a8cdd66388b27644efa4a1d6319ecc070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c85266db02cd1ffba3f0e1dd530666"><td class="memItemLeft" align="right" valign="top"><a id="ab8c85266db02cd1ffba3f0e1dd530666"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#ab8c85266db02cd1ffba3f0e1dd530666">Server</a> ()=default</td></tr>
+<tr class="memdesc:ab8c85266db02cd1ffba3f0e1dd530666"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor) <br /></td></tr>
+<tr class="separator:ab8c85266db02cd1ffba3f0e1dd530666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a121c20c9a492554e3c880eae380cd311"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a121c20c9a492554e3c880eae380cd311">select</a> (SelectClients selectClients=SC_All, struct timeval *timeout=nullptr)</td></tr>
+<tr class="memdesc:a121c20c9a492554e3c880eae380cd311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call select on all current sockets associated with the server.  <a href="#a121c20c9a492554e3c880eae380cd311">More...</a><br /></td></tr>
+<tr class="separator:a121c20c9a492554e3c880eae380cd311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6e98b7b371b6fc7e0b932c6ad386d79"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#ae6e98b7b371b6fc7e0b932c6ad386d79">accept</a> (typename Policy::socket_iterator_t &amp;listener)</td></tr>
+<tr class="memdesc:ae6e98b7b371b6fc7e0b932c6ad386d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept a connection request on a listener socket, add the accepted connection to the connection list.  <a href="#ae6e98b7b371b6fc7e0b932c6ad386d79">More...</a><br /></td></tr>
+<tr class="separator:ae6e98b7b371b6fc7e0b932c6ad386d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc858e17a308f7cf004be1267345721"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a9bc858e17a308f7cf004be1267345721">isConnectRequest</a> (typename Policy::socket_iterator_t &amp;listener)</td></tr>
+<tr class="memdesc:a9bc858e17a308f7cf004be1267345721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determin if a listener socket has been selected due to a connection request.  <a href="#a9bc858e17a308f7cf004be1267345721">More...</a><br /></td></tr>
+<tr class="separator:a9bc858e17a308f7cf004be1267345721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1168b9ce6495ce740752aa7e0e61efc7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a1168b9ce6495ce740752aa7e0e61efc7">isRead</a> (typename Policy::socket_iterator_t &amp;c)</td></tr>
+<tr class="memdesc:a1168b9ce6495ce740752aa7e0e61efc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determin if a socket is selected for read.  <a href="#a1168b9ce6495ce740752aa7e0e61efc7">More...</a><br /></td></tr>
+<tr class="separator:a1168b9ce6495ce740752aa7e0e61efc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b37e6e748c74a23bd3271e92591f2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a50b37e6e748c74a23bd3271e92591f2c">isWrite</a> (typename Policy::socket_iterator_t &amp;c)</td></tr>
+<tr class="memdesc:a50b37e6e748c74a23bd3271e92591f2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determin if a socket is selected for write.  <a href="#a50b37e6e748c74a23bd3271e92591f2c">More...</a><br /></td></tr>
+<tr class="separator:a50b37e6e748c74a23bd3271e92591f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2d059cdaa645313ce5dd26dac3d2d84"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#aa2d059cdaa645313ce5dd26dac3d2d84">isExcept</a> (typename Policy::socket_iterator_t &amp;c)</td></tr>
+<tr class="memdesc:aa2d059cdaa645313ce5dd26dac3d2d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if a socket is selected for exception.  <a href="#aa2d059cdaa645313ce5dd26dac3d2d84">More...</a><br /></td></tr>
+<tr class="separator:aa2d059cdaa645313ce5dd26dac3d2d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad29b56d166e686980f643a49334cc42"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#aad29b56d166e686980f643a49334cc42">isSelected</a> (typename Policy::socket_iterator_t &amp;listener)</td></tr>
+<tr class="memdesc:aad29b56d166e686980f643a49334cc42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if a socket is selected for any state.  <a href="#aad29b56d166e686980f643a49334cc42">More...</a><br /></td></tr>
+<tr class="separator:aad29b56d166e686980f643a49334cc42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4add2b90168addfd4c18c6a07d6115b8"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a4add2b90168addfd4c18c6a07d6115b8">push_front</a> (typename Policy::socket_ptr_t socketPtr)</td></tr>
+<tr class="memdesc:a4add2b90168addfd4c18c6a07d6115b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a new socket into the front of the socket container, the container takes ownership of the socket.  <a href="#a4add2b90168addfd4c18c6a07d6115b8">More...</a><br /></td></tr>
+<tr class="separator:a4add2b90168addfd4c18c6a07d6115b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a215e74202d4ceb0abc2b19d8727aa028"><td class="memItemLeft" align="right" valign="top"><a id="a215e74202d4ceb0abc2b19d8727aa028"></a>
+<tr class="memitem:a57262c5c145f79f01b7f35b5273e8d1d"><td class="memItemLeft" align="right" valign="top"><a id="a57262c5c145f79f01b7f35b5273e8d1d"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>errorString</b></td></tr>
-<tr class="separator:a215e74202d4ceb0abc2b19d8727aa028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a57262c5c145f79f01b7f35b5273e8d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5794b3a56929dc5ec7ec3c16d868b728"><td class="memItemLeft" align="right" valign="top"><a id="a5794b3a56929dc5ec7ec3c16d868b728"></a>
+Policy::socket_container_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a5794b3a56929dc5ec7ec3c16d868b728">sockets</a></td></tr>
+<tr class="memdesc:a5794b3a56929dc5ec7ec3c16d868b728"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of accepted connection sockets. <br /></td></tr>
+<tr class="separator:a5794b3a56929dc5ec7ec3c16d868b728"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a58e13b2d239834ff4d00d769cc22ae1a"><td class="memItemLeft" align="right" valign="top"><a id="a58e13b2d239834ff4d00d769cc22ae1a"></a>
-socket_list_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a58e13b2d239834ff4d00d769cc22ae1a">sockets</a></td></tr>
-<tr class="memdesc:a58e13b2d239834ff4d00d769cc22ae1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of accepted connection sockets. <br /></td></tr>
-<tr class="separator:a58e13b2d239834ff4d00d769cc22ae1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7462c58755c67496c2c3c24bf8ad802f"><td class="memItemLeft" align="right" valign="top"><a id="a7462c58755c67496c2c3c24bf8ad802f"></a>
-socket_list_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a7462c58755c67496c2c3c24bf8ad802f">newSockets</a></td></tr>
-<tr class="memdesc:a7462c58755c67496c2c3c24bf8ad802f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of sockets accepted. <br /></td></tr>
-<tr class="separator:a7462c58755c67496c2c3c24bf8ad802f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96ff3b4263c4d78083b780e971e2a011"><td class="memItemLeft" align="right" valign="top"><a id="a96ff3b4263c4d78083b780e971e2a011"></a>
-<a class="el" href="classeznet_1_1FD__Set.html">FD_Set</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a96ff3b4263c4d78083b780e971e2a011">fd_set</a></td></tr>
-<tr class="memdesc:a96ff3b4263c4d78083b780e971e2a011"><td class="mdescLeft">&#160;</td><td class="mdescRight">An object containing the fd_sets used. <br /></td></tr>
-<tr class="separator:a96ff3b4263c4d78083b780e971e2a011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0152e0c7bc41084805ca34b8b440f37c"><td class="memItemLeft" align="right" valign="top"><a id="a0152e0c7bc41084805ca34b8b440f37c"></a>
+Policy::socket_container_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a0152e0c7bc41084805ca34b8b440f37c">newSockets</a></td></tr>
+<tr class="memdesc:a0152e0c7bc41084805ca34b8b440f37c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of sockets accepted. <br /></td></tr>
+<tr class="separator:a0152e0c7bc41084805ca34b8b440f37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0afd1bb53736af62f3b69e1eb8eb456d"><td class="memItemLeft" align="right" valign="top"><a id="a0afd1bb53736af62f3b69e1eb8eb456d"></a>
+<a class="el" href="classeznet_1_1FD__Set.html">FD_Set</a>&lt; typename Policy::socket_container_t, typename Policy::socket_ptr_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Server.html#a0afd1bb53736af62f3b69e1eb8eb456d">fd_set</a></td></tr>
+<tr class="memdesc:a0afd1bb53736af62f3b69e1eb8eb456d"><td class="mdescLeft">&#160;</td><td class="mdescRight">An object containing the fd_sets used. <br /></td></tr>
+<tr class="separator:a0afd1bb53736af62f3b69e1eb8eb456d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An abstraction of a network server. </p>
+<div class="textblock"><h3>template&lt;class Policy = DefaultServerPolicy&lt;std::unique_ptr&lt;eznet::Socket&gt;&gt;&gt;<br />
+class eznet::Server&lt; Policy &gt;</h3>
+
+<p>An abstraction of a network server. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7e78ffdf64ed68d4598c0e9b05baa11c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e78ffdf64ed68d4598c0e9b05baa11c">&#9670;&nbsp;</a></span>accept()</h2>
+<a id="ae6e98b7b371b6fc7e0b932c6ad386d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6e98b7b371b6fc7e0b932c6ad386d79">&#9670;&nbsp;</a></span>accept()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class Policy  = DefaultServerPolicy&lt;std::unique_ptr&lt;eznet::Socket&gt;&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto eznet::Server::accept </td>
+          <td class="memname">auto <a class="el" href="classeznet_1_1Server.html">eznet::Server</a>&lt; Policy &gt;::accept </td>
           <td>(</td>
-          <td class="paramtype">socket_list_t::iterator &amp;&#160;</td>
+          <td class="paramtype">typename Policy::socket_iterator_t &amp;&#160;</td>
           <td class="paramname"><em>listener</em></td><td>)</td>
           <td></td>
         </tr>
@@ -190,19 +180,21 @@ socket_list_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 
 </div>
 </div>
-<a id="a7e15d6192a9e7d366f844daf60f6652a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e15d6192a9e7d366f844daf60f6652a">&#9670;&nbsp;</a></span>isConnectRequest()</h2>
+<a id="a9bc858e17a308f7cf004be1267345721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bc858e17a308f7cf004be1267345721">&#9670;&nbsp;</a></span>isConnectRequest()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class Policy  = DefaultServerPolicy&lt;std::unique_ptr&lt;eznet::Socket&gt;&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool eznet::Server::isConnectRequest </td>
+          <td class="memname">bool <a class="el" href="classeznet_1_1Server.html">eznet::Server</a>&lt; Policy &gt;::isConnectRequest </td>
           <td>(</td>
-          <td class="paramtype">socket_list_t::iterator &amp;&#160;</td>
+          <td class="paramtype">typename Policy::socket_iterator_t &amp;&#160;</td>
           <td class="paramname"><em>listener</em></td><td>)</td>
           <td></td>
         </tr>
@@ -225,19 +217,21 @@ socket_list_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 
 </div>
 </div>
-<a id="a0c1b364882af1603daac8b01b27245d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c1b364882af1603daac8b01b27245d1">&#9670;&nbsp;</a></span>isExcept()</h2>
+<a id="aa2d059cdaa645313ce5dd26dac3d2d84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2d059cdaa645313ce5dd26dac3d2d84">&#9670;&nbsp;</a></span>isExcept()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class Policy  = DefaultServerPolicy&lt;std::unique_ptr&lt;eznet::Socket&gt;&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool eznet::Server::isExcept </td>
+          <td class="memname">bool <a class="el" href="classeznet_1_1Server.html">eznet::Server</a>&lt; Policy &gt;::isExcept </td>
           <td>(</td>
-          <td class="paramtype">socket_list_t::iterator &amp;&#160;</td>
+          <td class="paramtype">typename Policy::socket_iterator_t &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -260,19 +254,21 @@ socket_list_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 
 </div>
 </div>
-<a id="ad61fda06b150941f4002cae2d7ee0443"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad61fda06b150941f4002cae2d7ee0443">&#9670;&nbsp;</a></span>isRead()</h2>
+<a id="a1168b9ce6495ce740752aa7e0e61efc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1168b9ce6495ce740752aa7e0e61efc7">&#9670;&nbsp;</a></span>isRead()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class Policy  = DefaultServerPolicy&lt;std::unique_ptr&lt;eznet::Socket&gt;&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool eznet::Server::isRead </td>
+          <td class="memname">bool <a class="el" href="classeznet_1_1Server.html">eznet::Server</a>&lt; Policy &gt;::isRead </td>
           <td>(</td>
-          <td class="paramtype">socket_list_t::iterator &amp;&#160;</td>
+          <td class="paramtype">typename Policy::socket_iterator_t &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -295,19 +291,21 @@ socket_list_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 
 </div>
 </div>
-<a id="afe3b471ee78ff5def039bd31feeb4d20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe3b471ee78ff5def039bd31feeb4d20">&#9670;&nbsp;</a></span>isSelected()</h2>
+<a id="aad29b56d166e686980f643a49334cc42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad29b56d166e686980f643a49334cc42">&#9670;&nbsp;</a></span>isSelected()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class Policy  = DefaultServerPolicy&lt;std::unique_ptr&lt;eznet::Socket&gt;&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool eznet::Server::isSelected </td>
+          <td class="memname">bool <a class="el" href="classeznet_1_1Server.html">eznet::Server</a>&lt; Policy &gt;::isSelected </td>
           <td>(</td>
-          <td class="paramtype">socket_list_t::iterator &amp;&#160;</td>
+          <td class="paramtype">typename Policy::socket_iterator_t &amp;&#160;</td>
           <td class="paramname"><em>listener</em></td><td>)</td>
           <td></td>
         </tr>
@@ -319,7 +317,7 @@ socket_list_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 </table>
 </div><div class="memdoc">
 
-<p>Deterimin if a socket is selected for any state. </p>
+<p>Determine if a socket is selected for any state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">listener</td><td>an iterator selecting a socket </td></tr>
@@ -330,19 +328,21 @@ socket_list_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 
 </div>
 </div>
-<a id="a715c101f37ef2e79bf2026df5186804a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a715c101f37ef2e79bf2026df5186804a">&#9670;&nbsp;</a></span>isWrite()</h2>
+<a id="a50b37e6e748c74a23bd3271e92591f2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50b37e6e748c74a23bd3271e92591f2c">&#9670;&nbsp;</a></span>isWrite()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class Policy  = DefaultServerPolicy&lt;std::unique_ptr&lt;eznet::Socket&gt;&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool eznet::Server::isWrite </td>
+          <td class="memname">bool <a class="el" href="classeznet_1_1Server.html">eznet::Server</a>&lt; Policy &gt;::isWrite </td>
           <td>(</td>
-          <td class="paramtype">socket_list_t::iterator &amp;&#160;</td>
+          <td class="paramtype">typename Policy::socket_iterator_t &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -365,19 +365,21 @@ socket_list_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 
 </div>
 </div>
-<a id="a8cdd66388b27644efa4a1d6319ecc070"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cdd66388b27644efa4a1d6319ecc070">&#9670;&nbsp;</a></span>pushBack()</h2>
+<a id="a4add2b90168addfd4c18c6a07d6115b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4add2b90168addfd4c18c6a07d6115b8">&#9670;&nbsp;</a></span>push_front()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class Policy  = DefaultServerPolicy&lt;std::unique_ptr&lt;eznet::Socket&gt;&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto eznet::Server::pushBack </td>
+          <td class="memname">auto <a class="el" href="classeznet_1_1Server.html">eznet::Server</a>&lt; Policy &gt;::push_front </td>
           <td>(</td>
-          <td class="paramtype">unique_ptr&lt; <a class="el" href="classeznet_1_1Socket.html">Socket</a> &gt;&#160;</td>
+          <td class="paramtype">typename Policy::socket_ptr_t&#160;</td>
           <td class="paramname"><em>socketPtr</em></td><td>)</td>
           <td></td>
         </tr>
@@ -388,21 +390,31 @@ socket_list_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
   </tr>
 </table>
 </div><div class="memdoc">
-<p>&lt; Push back a unique pointer to a <a class="el" href="classeznet_1_1Socket.html">Socket</a> </p>
+
+<p>Move a new socket into the front of the socket container, the container takes ownership of the socket. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socketPtr</td><td>A pointer to the socket to move. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An iterator pointing to the socket pointer in the container </dd></dl>
 
 </div>
 </div>
-<a id="af918a1cc3b285de5c92dd473eabd5c07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af918a1cc3b285de5c92dd473eabd5c07">&#9670;&nbsp;</a></span>select()</h2>
+<a id="a121c20c9a492554e3c880eae380cd311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a121c20c9a492554e3c880eae380cd311">&#9670;&nbsp;</a></span>select()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class Policy  = DefaultServerPolicy&lt;std::unique_ptr&lt;eznet::Socket&gt;&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int eznet::Server::select </td>
+          <td class="memname">int <a class="el" href="classeznet_1_1Server.html">eznet::Server</a>&lt; Policy &gt;::select </td>
           <td>(</td>
           <td class="paramtype">SelectClients&#160;</td>
           <td class="paramname"><em>selectClients</em> = <code>SC_All</code>, </td>

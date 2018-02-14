@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['operator_20bool',['operator bool',['../classeznet_1_1Socket.html#a5fa4a1cf57f64c53689984bc12c557f9',1,'eznet::Socket']]],
-  ['overflow',['overflow',['../classeznet_1_1socket__streambuf.html#adaf1fc8df5196a0d57d8bbd5f390b8f6',1,'eznet::socket_streambuf']]]
+  ['push_5ffront',['push_front',['../classeznet_1_1DefaultServerPolicy.html#ab22e89a9e5c01749689eecc0e57d4982',1,'eznet::DefaultServerPolicy::push_front()'],['../classeznet_1_1Server.html#a4add2b90168addfd4c18c6a07d6115b8',1,'eznet::Server::push_front()']]]
 ];

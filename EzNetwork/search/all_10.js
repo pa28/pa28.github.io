@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wr_5fset',['wr_set',['../classeznet_1_1FD__Set.html#a21ac11c03e58a345933852c2619d9f70',1,'eznet::FD_Set']]]
+  ['underflow',['underflow',['../classeznet_1_1socket__streambuf.html#a9859ecbfe996953798ef403ea5157c28',1,'eznet::socket_streambuf']]]
 ];

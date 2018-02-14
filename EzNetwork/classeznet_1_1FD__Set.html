@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>EzNetwork: eznet::FD_Set Class Reference</title>
+<title>EzNetwork: eznet::FD_Set&lt; SocketContainer, SocketPtr &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,56 +67,168 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classeznet_1_1FD__Set-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">eznet::FD_Set Class Reference</div>  </div>
+<div class="title">eznet::FD_Set&lt; SocketContainer, SocketPtr &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad53b054463a36025705c62f998cf2e2e"><td class="memItemLeft" align="right" valign="top"><a id="ad53b054463a36025705c62f998cf2e2e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
-<tr class="separator:ad53b054463a36025705c62f998cf2e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a163b6337946bf25eeb9ebdbefd8725e0"><td class="memItemLeft" align="right" valign="top"><a id="a163b6337946bf25eeb9ebdbefd8725e0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (const socket_list_t::iterator sock)</td></tr>
-<tr class="separator:a163b6337946bf25eeb9ebdbefd8725e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bf80df11ea320e60e641eaa9a2f5acc"><td class="memItemLeft" align="right" valign="top"><a id="a1bf80df11ea320e60e641eaa9a2f5acc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (unique_ptr&lt; <a class="el" href="classeznet_1_1Socket.html">Socket</a> &gt; &amp;sock)</td></tr>
-<tr class="separator:a1bf80df11ea320e60e641eaa9a2f5acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e33c0a8b885586ea5d75b4015b1fd92"><td class="memItemLeft" align="right" valign="top"><a id="a0e33c0a8b885586ea5d75b4015b1fd92"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>select</b> (struct timeval *timeout=nullptr)</td></tr>
-<tr class="separator:a0e33c0a8b885586ea5d75b4015b1fd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6b93a4f3a7c86138c304c43c7652235"><td class="memItemLeft" align="right" valign="top"><a id="aa6b93a4f3a7c86138c304c43c7652235"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRead</b> (unique_ptr&lt; <a class="el" href="classeznet_1_1Socket.html">Socket</a> &gt; &amp;s)</td></tr>
-<tr class="separator:aa6b93a4f3a7c86138c304c43c7652235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38de3610da6e14fd1a252cd1bd4125f7"><td class="memItemLeft" align="right" valign="top"><a id="a38de3610da6e14fd1a252cd1bd4125f7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isWrite</b> (unique_ptr&lt; <a class="el" href="classeznet_1_1Socket.html">Socket</a> &gt; &amp;s)</td></tr>
-<tr class="separator:a38de3610da6e14fd1a252cd1bd4125f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1357cade4630cc71ec7b48c5d38afc9"><td class="memItemLeft" align="right" valign="top"><a id="ae1357cade4630cc71ec7b48c5d38afc9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isExcept</b> (unique_ptr&lt; <a class="el" href="classeznet_1_1Socket.html">Socket</a> &gt; &amp;s)</td></tr>
-<tr class="separator:ae1357cade4630cc71ec7b48c5d38afc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb0c06dd7a1d7d8ccbf14adb5af709c1"><td class="memItemLeft" align="right" valign="top"><a id="acb0c06dd7a1d7d8ccbf14adb5af709c1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSelected</b> (unique_ptr&lt; <a class="el" href="classeznet_1_1Socket.html">Socket</a> &gt; &amp;s)</td></tr>
-<tr class="separator:acb0c06dd7a1d7d8ccbf14adb5af709c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26b2d6f280c1b0f748495ef9cab04563"><td class="memItemLeft" align="right" valign="top"><a id="a26b2d6f280c1b0f748495ef9cab04563"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#a26b2d6f280c1b0f748495ef9cab04563">clear</a> ()</td></tr>
+<tr class="memdesc:a26b2d6f280c1b0f748495ef9cab04563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all file descriptor sets. <br /></td></tr>
+<tr class="separator:a26b2d6f280c1b0f748495ef9cab04563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90bd097a0737c57e2b2c45a412554cc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#a90bd097a0737c57e2b2c45a412554cc5">set</a> (const typename SocketContainer::iterator sock)</td></tr>
+<tr class="memdesc:a90bd097a0737c57e2b2c45a412554cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a socket container iterator, set the socket selection criteria.  <a href="#a90bd097a0737c57e2b2c45a412554cc5">More...</a><br /></td></tr>
+<tr class="separator:a90bd097a0737c57e2b2c45a412554cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af99491fb5c0ec3e7914beb26763a4b47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#af99491fb5c0ec3e7914beb26763a4b47">set</a> (SocketPtr &amp;sock)</td></tr>
+<tr class="separator:af99491fb5c0ec3e7914beb26763a4b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ca8abede2b5af93b3cd4992b85e45a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#a6ca8abede2b5af93b3cd4992b85e45a6">select</a> (struct timeval *timeout=nullptr)</td></tr>
+<tr class="memdesc:a6ca8abede2b5af93b3cd4992b85e45a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the select call.  <a href="#a6ca8abede2b5af93b3cd4992b85e45a6">More...</a><br /></td></tr>
+<tr class="separator:a6ca8abede2b5af93b3cd4992b85e45a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3b1b14534ac5ab3a850d09a397ab3b6"><td class="memItemLeft" align="right" valign="top"><a id="ad3b1b14534ac5ab3a850d09a397ab3b6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#ad3b1b14534ac5ab3a850d09a397ab3b6">isRead</a> (SocketPtr &amp;s)</td></tr>
+<tr class="memdesc:ad3b1b14534ac5ab3a850d09a397ab3b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for read selection. <br /></td></tr>
+<tr class="separator:ad3b1b14534ac5ab3a850d09a397ab3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a336381a039cce9668f5812d0339128e7"><td class="memItemLeft" align="right" valign="top"><a id="a336381a039cce9668f5812d0339128e7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#a336381a039cce9668f5812d0339128e7">isWrite</a> (SocketPtr &amp;s)</td></tr>
+<tr class="memdesc:a336381a039cce9668f5812d0339128e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for write selection. <br /></td></tr>
+<tr class="separator:a336381a039cce9668f5812d0339128e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ab0884578ade432dbdbf1a24d913880"><td class="memItemLeft" align="right" valign="top"><a id="a7ab0884578ade432dbdbf1a24d913880"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#a7ab0884578ade432dbdbf1a24d913880">isExcept</a> (SocketPtr &amp;s)</td></tr>
+<tr class="memdesc:a7ab0884578ade432dbdbf1a24d913880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for exception selection. <br /></td></tr>
+<tr class="separator:a7ab0884578ade432dbdbf1a24d913880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af721955326ac288250db70c9b012dfae"><td class="memItemLeft" align="right" valign="top"><a id="af721955326ac288250db70c9b012dfae"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#af721955326ac288250db70c9b012dfae">isSelected</a> (SocketPtr &amp;s)</td></tr>
+<tr class="memdesc:af721955326ac288250db70c9b012dfae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for any selection. <br /></td></tr>
+<tr class="separator:af721955326ac288250db70c9b012dfae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a73a9c986b6b530ad3c4a8e9d7f76c0f4"><td class="memItemLeft" align="right" valign="top"><a id="a73a9c986b6b530ad3c4a8e9d7f76c0f4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#a73a9c986b6b530ad3c4a8e9d7f76c0f4">n</a></td></tr>
-<tr class="memdesc:a73a9c986b6b530ad3c4a8e9d7f76c0f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The largest file descriptor set + 1;. <br /></td></tr>
-<tr class="separator:a73a9c986b6b530ad3c4a8e9d7f76c0f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae13df1137e7da341aa1083a812668401"><td class="memItemLeft" align="right" valign="top"><a id="ae13df1137e7da341aa1083a812668401"></a>
-fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#ae13df1137e7da341aa1083a812668401">rd_set</a></td></tr>
-<tr class="memdesc:ae13df1137e7da341aa1083a812668401"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file descriptor sets for the select call read. <br /></td></tr>
-<tr class="separator:ae13df1137e7da341aa1083a812668401"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21ac11c03e58a345933852c2619d9f70"><td class="memItemLeft" align="right" valign="top"><a id="a21ac11c03e58a345933852c2619d9f70"></a>
-fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#a21ac11c03e58a345933852c2619d9f70">wr_set</a></td></tr>
-<tr class="memdesc:a21ac11c03e58a345933852c2619d9f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file descriptor sets for the select call write. <br /></td></tr>
-<tr class="separator:a21ac11c03e58a345933852c2619d9f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6452c341ca1e022829e68d8cf07738f3"><td class="memItemLeft" align="right" valign="top"><a id="a6452c341ca1e022829e68d8cf07738f3"></a>
-fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#a6452c341ca1e022829e68d8cf07738f3">ex_set</a></td></tr>
-<tr class="memdesc:a6452c341ca1e022829e68d8cf07738f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file descriptor sets for the select call exception. <br /></td></tr>
-<tr class="separator:a6452c341ca1e022829e68d8cf07738f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1b840d970233c4e0ced320f49372ecb"><td class="memItemLeft" align="right" valign="top"><a id="ac1b840d970233c4e0ced320f49372ecb"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#ac1b840d970233c4e0ced320f49372ecb">n</a></td></tr>
+<tr class="memdesc:ac1b840d970233c4e0ced320f49372ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The largest file descriptor set + 1;. <br /></td></tr>
+<tr class="separator:ac1b840d970233c4e0ced320f49372ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b416aa3bb6a2fd31629584358b95a3"><td class="memItemLeft" align="right" valign="top"><a id="ac5b416aa3bb6a2fd31629584358b95a3"></a>
+fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#ac5b416aa3bb6a2fd31629584358b95a3">rd_set</a></td></tr>
+<tr class="memdesc:ac5b416aa3bb6a2fd31629584358b95a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file descriptor sets for the select call read. <br /></td></tr>
+<tr class="separator:ac5b416aa3bb6a2fd31629584358b95a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3aa8e09cb10e9acad7fe2705247882e"><td class="memItemLeft" align="right" valign="top"><a id="ab3aa8e09cb10e9acad7fe2705247882e"></a>
+fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#ab3aa8e09cb10e9acad7fe2705247882e">wr_set</a></td></tr>
+<tr class="memdesc:ab3aa8e09cb10e9acad7fe2705247882e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file descriptor sets for the select call write. <br /></td></tr>
+<tr class="separator:ab3aa8e09cb10e9acad7fe2705247882e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21be9d827882012e3df947b2bf9a56d"><td class="memItemLeft" align="right" valign="top"><a id="ac21be9d827882012e3df947b2bf9a56d"></a>
+fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1FD__Set.html#ac21be9d827882012e3df947b2bf9a56d">ex_set</a></td></tr>
+<tr class="memdesc:ac21be9d827882012e3df947b2bf9a56d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file descriptor sets for the select call exception. <br /></td></tr>
+<tr class="separator:ac21be9d827882012e3df947b2bf9a56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6ca8abede2b5af93b3cd4992b85e45a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ca8abede2b5af93b3cd4992b85e45a6">&#9670;&nbsp;</a></span>select()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class SocketContainer, class SocketPtr&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classeznet_1_1FD__Set.html">eznet::FD_Set</a>&lt; SocketContainer, SocketPtr &gt;::select </td>
+          <td>(</td>
+          <td class="paramtype">struct timeval *&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Make the select call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>An optional timeout value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of file descriptors selected. </dd></dl>
+
+</div>
+</div>
+<a id="a90bd097a0737c57e2b2c45a412554cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90bd097a0737c57e2b2c45a412554cc5">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class SocketContainer, class SocketPtr&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classeznet_1_1FD__Set.html">eznet::FD_Set</a>&lt; SocketContainer, SocketPtr &gt;::set </td>
+          <td>(</td>
+          <td class="paramtype">const typename SocketContainer::iterator&#160;</td>
+          <td class="paramname"><em>sock</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Given a socket container iterator, set the socket selection criteria. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sock</td><td>the iterator </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af99491fb5c0ec3e7914beb26763a4b47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af99491fb5c0ec3e7914beb26763a4b47">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class SocketContainer, class SocketPtr&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classeznet_1_1FD__Set.html">eznet::FD_Set</a>&lt; SocketContainer, SocketPtr &gt;::set </td>
+          <td>(</td>
+          <td class="paramtype">SocketPtr &amp;&#160;</td>
+          <td class="paramname"><em>sock</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Given a socket pointer, set the socket selection criteria </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sock</td><td>the pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>EzNetwork/<a class="el" href="server_8h_source.html">server.h</a></li>
 </ul>

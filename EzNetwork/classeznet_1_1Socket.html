@@ -131,9 +131,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a9d1ed42229df2fa7db781989a6f36b72"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeznet_1_1Socket.html#a9d1ed42229df2fa7db781989a6f36b72">listen</a> (int backlog, AiFamilyPrefs... familyPrefs)</td></tr>
 <tr class="memdesc:a9d1ed42229df2fa7db781989a6f36b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Complet a socket as a listen or server socket.  <a href="#a9d1ed42229df2fa7db781989a6f36b72">More...</a><br /></td></tr>
 <tr class="separator:a9d1ed42229df2fa7db781989a6f36b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9d4da60231e5204aac4354afb7bdef0"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Socket.html#ae9d4da60231e5204aac4354afb7bdef0">getPeerName</a> (int flags=NI_NOFQDN|NI_NUMERICSERV)</td></tr>
-<tr class="memdesc:ae9d4da60231e5204aac4354afb7bdef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a peer address string for the socket.  <a href="#ae9d4da60231e5204aac4354afb7bdef0">More...</a><br /></td></tr>
-<tr class="separator:ae9d4da60231e5204aac4354afb7bdef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b2d27d98a9310bb241a7e21fc1fbd5e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Socket.html#a7b2d27d98a9310bb241a7e21fc1fbd5e">getPeerName</a> (unsigned int flags=NI_NOFQDN|NI_NUMERICSERV)</td></tr>
+<tr class="memdesc:a7b2d27d98a9310bb241a7e21fc1fbd5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a peer address string for the socket.  <a href="#a7b2d27d98a9310bb241a7e21fc1fbd5e">More...</a><br /></td></tr>
+<tr class="separator:a7b2d27d98a9310bb241a7e21fc1fbd5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95c83c5de74811e5ac8ed9fe2461ef91"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Socket.html#a95c83c5de74811e5ac8ed9fe2461ef91">socketFlags</a> (bool set, int flags)</td></tr>
+<tr class="memdesc:a95c83c5de74811e5ac8ed9fe2461ef91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses fcntl(2) to set or clearflags on the socket file descriptor.  <a href="#a95c83c5de74811e5ac8ed9fe2461ef91">More...</a><br /></td></tr>
+<tr class="separator:a95c83c5de74811e5ac8ed9fe2461ef91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c0de4250373da4dbf58fe7efbd37ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Socket.html#a28c0de4250373da4dbf58fe7efbd37ab">closeOnExec</a> (bool <a class="el" href="classeznet_1_1Socket.html#a578546da9ff2ffef03ef5f27f4a6845e">close</a>)</td></tr>
+<tr class="memdesc:a28c0de4250373da4dbf58fe7efbd37ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses fcntl(2) to set or clear FD_CLOEXEC flag.  <a href="#a28c0de4250373da4dbf58fe7efbd37ab">More...</a><br /></td></tr>
+<tr class="separator:a28c0de4250373da4dbf58fe7efbd37ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a578546da9ff2ffef03ef5f27f4a6845e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeznet_1_1Socket.html#a578546da9ff2ffef03ef5f27f4a6845e">close</a> ()</td></tr>
 <tr class="memdesc:a578546da9ff2ffef03ef5f27f4a6845e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a socket and set the internal file descriptor to -1;.  <a href="#a578546da9ff2ffef03ef5f27f4a6845e">More...</a><br /></td></tr>
 <tr class="separator:a578546da9ff2ffef03ef5f27f4a6845e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -344,6 +350,41 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>socket_streambuf</b>
 
 </div>
 </div>
+<a id="a28c0de4250373da4dbf58fe7efbd37ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28c0de4250373da4dbf58fe7efbd37ab">&#9670;&nbsp;</a></span>closeOnExec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int eznet::Socket::closeOnExec </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>close</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Uses fcntl(2) to set or clear FD_CLOEXEC flag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">close</td><td>When true set the flag, otherwise clear </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 on error, 0 on success, errno is set to indicate the error encountered. </dd></dl>
+
+</div>
+</div>
 <a id="a801f7f6ec3ecde1f8daee98c330433bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a801f7f6ec3ecde1f8daee98c330433bd">&#9670;&nbsp;</a></span>connect()</h2>
 
@@ -491,8 +532,8 @@ template&lt;typename... AiFamilyPrefs&gt; </div>
 
 </div>
 </div>
-<a id="ae9d4da60231e5204aac4354afb7bdef0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9d4da60231e5204aac4354afb7bdef0">&#9670;&nbsp;</a></span>getPeerName()</h2>
+<a id="a7b2d27d98a9310bb241a7e21fc1fbd5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b2d27d98a9310bb241a7e21fc1fbd5e">&#9670;&nbsp;</a></span>getPeerName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -503,7 +544,7 @@ template&lt;typename... AiFamilyPrefs&gt; </div>
         <tr>
           <td class="memname">string eznet::Socket::getPeerName </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>flags</em> = <code>NI_NOFQDN&#160;|&#160;NI_NUMERICSERV</code></td><td>)</td>
           <td></td>
         </tr>
@@ -633,8 +674,11 @@ template&lt;typename... AiFamilyPrefs&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the socket fd or -1 on error</dd></dl>
-<p>Finds a connection specification that allows a socket to be created and bound preferring the provided address family preference, if any. </p>
+<dl class="section return"><dt>Returns</dt><dd>-1 on error, 0 on success</dd></dl>
+<p>Finds a connection specification that allows a socket to be created and bound preferring the provided address family preference, if any. If the socket fd is successfully created this method also calls:</p><ul>
+<li>socketFlags(true, O_NONBLOCK)</li>
+<li>closeOnExec(true) </li>
+</ul>
 
 </div>
 </div>
@@ -835,6 +879,52 @@ template&lt;typename... AiFamilyPrefs&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the return value from ::shutdown(2) </dd></dl>
+
+</div>
+</div>
+<a id="a95c83c5de74811e5ac8ed9fe2461ef91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95c83c5de74811e5ac8ed9fe2461ef91">&#9670;&nbsp;</a></span>socketFlags()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int eznet::Socket::socketFlags </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>set</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flags</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Uses fcntl(2) to set or clearflags on the socket file descriptor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">set</td><td>When true set the specified flags, otherwise clear. </td></tr>
+    <tr><td class="paramname">flags</td><td>An or mask of flags to set or clear </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 on error, 0 on success, errno is set to indicate the error encountered. </dd></dl>
 
 </div>
 </div>

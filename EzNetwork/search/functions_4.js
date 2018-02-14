@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fd',['fd',['../classeznet_1_1Socket.html#acdd000aa1e3ffc24bff05647fb008081',1,'eznet::Socket']]],
-  ['findpeerinfo',['findPeerInfo',['../classeznet_1_1Socket.html#aa59ae395779be6093585b78c5dcabb14',1,'eznet::Socket']]]
+  ['getpeername',['getPeerName',['../classeznet_1_1Socket.html#a7b2d27d98a9310bb241a7e21fc1fbd5e',1,'eznet::Socket']]],
+  ['getstatus',['getStatus',['../classeznet_1_1Socket.html#a3e444f242723862fc92dc1849c0a89e4',1,'eznet::Socket']]]
 ];
