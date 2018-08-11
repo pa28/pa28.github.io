@@ -1,34 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style/site.css"/>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/site.css"/>
 </head>
 <body style="font-family:Verdana;">
 
 <div class="header">
-  <h1>PA28 GitHub Repositories</h1>
+    <h1>PA28 GitHub Repositories</h1>
 </div>
 
 <div style="overflow:auto">
-  <div class="menu">
-    <div class="thisitem">Home</div>
-    <div class="menuitem" onclick="window.open('https://github.com/pa28/EzNetwork','_self');">EzNetwork</div>
-    <div class="menuitem" onclick="window.open('https://github.com/pa28/PiDP-8-sim','_self')">PiDP-8-sim</div>
-    <div class="menuitem" onclick="window.open('https://github.com/pa28/bitx40','_self')">BITX40 Sketch</div>
-  </div>
+    <div class="menu">
+        <div class="thisitem">Home</div>
+        <div class="thisitem">Why C++</div>
+        <div class="menuitem" onclick="window.open('https://github.com/pa28/antlr4');">antlr4</div>
+        <div class="menuitem" onclick="window.open('https://github.com/pa28/EzNetwork','_self');">EzNetwork</div>
+        <div class="menuitem" onclick="window.open('https://github.com/pa28/PiDP-8-sim','_self');">PiDP-8-sim</div>
+        <div class="menuitem" onclick="window.open('https://github.com/pa28/bitx40','_self');">BITX40 Sketch</div>
+        <div class="menuitem" onclick="window.open('https://github.com/pa28/ESP_8266');">ESP 8266</div>
+        <div class="menuitem" onclick="window.open('https://github.com/pa28/ParameterLib');">ParameterLib</div>
+        <!--<div class="menuitem" onclick="window.open('');"></div>-->
+    </div>
 
-  <div class="main">
-    <h2>Home</h2>
-    <p>This is my website devoted to open source programming. Whenever possible I program in C++</p>
-  </div>
+    <div class="main">
+        <h2>Home</h2>
+        <p>This is my website devoted to open source programming. Whenever possible I program in C++. If you would like
+            to know why I will be including a number of articles under <em>Why C++</em></p>
+        <h2>antlr4</h2>
+        <p>ANTLR (ANother Tool for Language Recognition) is a powerful parser generator for reading, processing,
+            executing, or translating structured text or binary files. This is a fork of <a
+                    href="https://github.com/antlr/antlr4">antlr/antlr4</a>, the only thing
+            which might be of interst is the <a
+                    href="https://github.com/pa28/antlr4/tree/c++17-support">c++17-support</a> branch which I have
+            modified the antlr C++ runtime to work better in C++17 by making <a
+                    href="https://github.com/pa28/antlr4/blob/c%2B%2B17-support/runtime/Cpp/runtime/src/support/Any.h">
+                antlrcpp::Any</a> into an alias of <a href="https://en.cppreference.com/w/cpp/utility/any">std::any</a>.
+        </p>
+        <h2>EzNetwork</h2>
+        <p>A C++ library with the goal of easing the task of managing network connections. Since the C++ standard
+            library lacks nework support. Hoping C++20 will provide so I only do work required to support my on
+            projects.</p>
+        <h2>PiDP-8-sim</h2>
+        <p>A PDP-8 simulator for the Raspberry Pi aimed at running efficiently on the A+ model and working with the
+            PiDP8 kit. Currently porting to C++17. This work will feature in my <em>Why C++</em> articles.</p>
+        <h2>BITX40 Sketch</h2>
+        <p>BITX40 sketch for Raduino. Forked from <a href="https://github.com/amunters/bitx40">amunters/bitx40</a>
+            for the odd time that I make changes. So far all my pull requests have been accepted so you should probably
+            just go to the <a href="https://github.com/amunters/bitx40">upstream repository.</a></p>
+        <h2>ESP 8266</h2>
+        <p>Arduino sketches for ESP 8266 based devices. a sketch which measures and reposrt temperature and humidity to
+            a REST service. The sketch uses the ESP 8266 deep sleep mode between readings to reduce current
+            consumption.</p>
+        <h2>ParameterLib</h2>
+        <p>An include only, template based C++ wrapper around GNU getopt_long.</p>
+    </div>
 
 </div>
 
 <div style="background-color:#f1f1f1;text-align:center;padding:10px;margin-top:7px;font-size:12px;">
-&copy; 2018 <em>PA28</em>
+    &copy; 2018 <em>PA28</em>
 </div>
 
 </body>
