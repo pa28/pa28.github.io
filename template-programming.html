@@ -5,12 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/site.css"/>
+    <link rel="stylesheet" href="style/prism.css">
     <script>
         if (window.location.host.substr(-10) === '.github.io' && window.location.protocol !== 'https:') {
             window.location.protocol = 'https:';
         }</script>
 </head>
 <body style="font-family:Verdana, sans-serif;">
+<script src="script/prism.js"></script>
 
 <div class="header">
     <h1>Template Programming</h1>
@@ -61,8 +63,45 @@
             So I'm going to use one of my hobby projects, PiDP-8-sim, which is hosted here in my repository. I'm going
             to provide some background, but if you aren't really interested feel free to <a href="#getting_to_code">skip
                 ahead</a>. You can always come back if you find you are missing something.</p>
+        <p>PiDP-8-sim is a derivative of <a href="http://simh.trailing-edge.com/">sim-h</a>, an historical simulator for
+            old computer systems designed to work with the <a
+                    href="http://obsolescence.wixsite.com/obsolescence/pidp-8">PiDP-8</a> DEC PDP-8I emulator that uses
+            a Raspbery-Pi running sim-h. Since sim-h is written in C, much of PiDP-8-sim is C mixed with C++, all of
+            which is several (if not many) years old. C hasn't changed much over that time, but C++ certainly has.
+            Looking at the code today it is obvious that the program could be made better by using features available
+            from C++17. In this article I will go into the development and final implementation of the hardware
+            registers and memory storage.
+        </p>
+        <p>One approach would be to write everything to directly support the PDP-8 architecture. But Obsolescence
+            Guaranteed is producing a PiDP-11/70 emulator; it would be nice to be able to use the same code for that or
+            other projects. That is why I have decided to make a generic header only library that I can use for the
+            PiDP-8 and easily extend to other computer types.
+        </p>
 
-        <a name="getting_to_code"></a>
+        <a name="getting_to_code"><h3>Hardware Registers</h3></a>
+
+        <p>So writing software to implement generic hardware registers. What might our requirements be? I quickly
+            developed the following list:
+        <ul>
+            <li>Able to specify register size, keeping in mind that the PDP-8 has strange (for today) register sizes
+            </li>
+            <li>Map efficiently to native hardware storage. Efficiency is ambiguous, I should be able to specify either
+                efficient storage size or efficient computation speed.
+            </li>
+            <li>They should be type, including size, safe.</li>
+        </ul>
+        </p>
+        <p>
+        <pre class="line-numbers"><code class="language-c++" data-src="examples/hw_template_1.h">template &lt;typename T, size_t wdith&gt;
+struct hw_register {
+    typedef T base_type;
+    static constexpr int storage_bits = _storage_bits;
+
+    hw_register() : value{0} {}
+
+    base_type value;
+};</code></pre>
+        </p>
 
         <hr>
 
