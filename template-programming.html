@@ -124,24 +124,59 @@
         <pre class="line-numbers" data-src="examples/required_base_type_2.h"><code class="language-c++"></code></pre>
         <p>This code takes advantage of the uint_fast<em>n</em>_t and uint_least<em>n</em>_t types which will provide
             the implementation determined type with the fastest operation or smallest sufficient size respectively.
-            With this we can refactor the hardware register declaration.
+            With this we can refactor the hardware register declaration. There two mores tool we will want before we
+            start that process.
         </p>
+        <p>One of the issues with having many complex template types is controlling when a particular type should be
+            handled by a function. A practice has evolved that deals with this and also makes code more readable. One
+            tool is type support<sup>[<a href="#4_type_support">4</a>]</sup>, the other is policy based design
+            using policy classes. First type support:</p>
+        <pre class="line-numbers" data-src="examples/type_support_1.h"><code class="language-c++"></code></pre>
+        <p>Lines 1 to 3 are the generic template definition. It says that unless otherwise indicated the answer to "is
+            this a hw_register type?" is false. It is invoked like this:
+            <code class="language-c++">is_hw_register&lt;some_type&gt;::value</code>. But that can be a little
+            cumbersome, so we add the syntactic sugar at lines 5 and 6 which allow us to accomplish the same thig with
+            <code class="language-c++">is_hw_register_v&lt;some_type&gt;</code>. Lines 8 to 10 are a forward declaration
+            of my hw_register. You don't need to forward declare to use type support, but we don't need the full
+            declaration for this example. Lines 12 to 14 tell the compiler that a template signature of <code
+                    class="language-c++">hw_register&lt;int,typename,typname&gt;</code> is a hardware register. This
+            will let us define a copy constructor at lines 16 and 17 that will only accept hw_register types; and that
+            intent is clear. This may seem like a lot of work for this simple situation, but this is a powerful syntax
+            that you should be familiar with. You will have noticed the my hw_register declaration has two policy
+            classes. Let's look at those now.
+        </p>
+        <p>Policy classes are structures which contain types or values that are used to control some behavior of the
+            class using them. My hw_register class has an output and storage policy classes:</p>
+        <pre class="line-numbers" data-src="examples/policy_class_1.h"><code class="language-c++"></code></pre>
+        <p>The output policy is controls how register contents are printed to streams. Doing it this way encapsulates
+            the printing function in the library but also allows users of the library some control. The storage policy
+            has a flags that controll storage size checking for size safety, and one to allow registers to be
+            <em>fast</em> or <em>least</em> types. So now we can fully declare hw_register. I have left out a couple of
+            supporting types, but those are in the repository and use these techniques.</p>
         <pre class="line-numbers" data-src="examples/hw_template_2.h"><code class="language-c++"></code></pre>
         <hr>
 
         <dl>
-            <dt><a name="1_turing_complete">[1] Turing Complete</a></dt>
-            <dd>In <a href="https://en.wikipedia.org/wiki/Turing_completeness">computability theory</a>, a system of
-                data-manipulation rules (such as a computer's instruction set, a programming language, or a cellular
-                automaton) is said to be Turing complete or computationally universal if it can be used to simulate any
-                Turing machine
+            <dt><a name="1_turing_complete">[1]</a> <a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing
+                Complete</a></dt>
+            <dd>In computability theory, a system of data-manipulation rules (such as a computer's instruction set, a
+                programming language, or a cellular automaton) is said to be Turing complete or computationally
+                universal if it can be used to simulate any Turing machine.
             </dd>
             <dt><a name="2_procedural_programming">[2]</a> <a
                     href="https://en.wikipedia.org/wiki/Procedural_programming">
                 Procedural Programming</a></dt>
+            <dd>Procedural programming is a programming paradigm, derived from structured programming, based upon the
+                concept of the procedure call.
+            </dd>
             <dt><a name="3_declarative_programming">[3]</a> <a
                     href="https://en.wikipedia.org/wiki/Declarative_programming">
                 Declarative Programming</a></dt>
+            <dd>In computer science, declarative programming is a programming paradigm that expresses the logic of a
+                computation without describing its control flow.
+            </dd>
+            <dt><a name="4_type_support">[4]</a> <a href="https://en.cppreference.com/w/cpp/types">Type Support</a></dt>
+            <dd>(basic types, RTTI, type traits)</dd>
         </dl>
     </div>
 </div>
