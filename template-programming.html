@@ -88,21 +88,45 @@
             <li>Map efficiently to native hardware storage. Efficiency is ambiguous, I should be able to specify either
                 efficient storage size or efficient computation speed.
             </li>
-            <li>They should be type, including size, safe.</li>
+            <li>They should be type safe, including size, safe.</li>
         </ul>
+        <p>Let's start small, if naive. This will allow us to discuss some basic principles, then we can move on.
+            Consider this structure:
         </p>
-        <p>
-        <pre class="line-numbers"><code class="language-c++" data-src="examples/hw_template_1.h">template &lt;typename T, size_t wdith&gt;
-struct hw_register {
-    typedef T base_type;
-    static constexpr int storage_bits = _storage_bits;
-
-    hw_register() : value{0} {}
-
-    base_type value;
-};</code></pre>
+        <pre class="line-numbers" data-src="examples/hw_template_1.h"><code class="language-c++"></code></pre>
+        <p>This allows us to set up a PDP-8 register by declaring <code class="language-c++">hw_register&lt;uint16_t,12&gt;
+            pc;</code>. We have set the register size to 12 bits, but it falls short of our type safety and storage
+            efficiency. But it does demonstrate a template programming technique. Lines 3 and 4 show how "variables" are
+            stored in classes and structs as type definitions or static constexper integral values. We don't need this
+            inside the struct declaration because we could use the actual template parameters. But with these values
+            "stored" in the struct we can access the type with <code class="language-c++">pc.base_type</code> and the
+            numeric value with <code class="language-c++">pc.width</code>. However we need some whay to go from the
+            register size to the most efficient storage for speed or size; and we have to do this at compile time. This
+            is where template meta programming shines through the arcane syntax. First lets compute the standard C++
+            type size that we need to store the register value in.
         </p>
-
+        <pre class="line-numbers" data-src="examples/required_base_size_1.h"><code class="language-c++"></code></pre>
+        <p><code class="language-c++">required_base_size()</code> is a function that takes the register size in bits as
+            a template parameter (ensuring it is constant and defined at compile time). Line 3 ensures the code won't
+            try to declare registers larger than 64 bits, which is currently the largest integral type supported by C++.
+            Lines 4 and 5 determine if an 8 bit value is sufficiently large, and if so returns 8. Lines 6 and 7 do the
+            same for 16 bits, and so on. Line 13 will never be reached, but it keeps the compiler happy. Yes, more work
+            is needed. But now we can go from a PDP-8 register size to a size that is supported now we just need to
+            generate a type. If you aren't used to declarative programming this may look strange, but this is how we do
+            it.
+        </p>
+        <pre class="line-numbers" data-src="examples/required_base_type_1.h"><code class="language-c++"></code></pre>
+        <p>Template meta programmers create lots of structs. Lines 1 to 3 specify the base template which will satisfy
+            all invokations not satisfied by an more specific matching templates. Lines 5 through 23 are the four
+            specialized themplates that will satisfy invocations with template parameters of 8, 16, 32 or 64. Line 25 is
+            a sample invocation of a 12 bit register. But this still doesn't allow us to select type optimization. For
+            that we need to add some more code.</p>
+        <pre class="line-numbers" data-src="examples/required_base_type_2.h"><code class="language-c++"></code></pre>
+        <p>This code takes advantage of the uint_fast<em>n</em>_t and uint_least<em>n</em>_t types which will provide
+            the implementation determined type with the fastest operation or smallest sufficient size respectively.
+            With this we can refactor the hardware register declaration.
+        </p>
+        <pre class="line-numbers" data-src="examples/hw_template_2.h"><code class="language-c++"></code></pre>
         <hr>
 
         <dl>
@@ -112,10 +136,12 @@ struct hw_register {
                 automaton) is said to be Turing complete or computationally universal if it can be used to simulate any
                 Turing machine
             </dd>
-            <dt><a name="2_procedural_programming">[2] <a href="https://en.wikipedia.org/wiki/Procedural_programming">
-                Procedural Programming</a></a></dt>
-            <dt><a name="3_declarative_programming">[3] <a href="https://en.wikipedia.org/wiki/Declarative_programming">
-                Declarative Programming</a></a></dt>
+            <dt><a name="2_procedural_programming">[2]</a> <a
+                    href="https://en.wikipedia.org/wiki/Procedural_programming">
+                Procedural Programming</a></dt>
+            <dt><a name="3_declarative_programming">[3]</a> <a
+                    href="https://en.wikipedia.org/wiki/Declarative_programming">
+                Declarative Programming</a></dt>
         </dl>
     </div>
 </div>
