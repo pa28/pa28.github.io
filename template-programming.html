@@ -26,6 +26,11 @@
         <!--<div class="menuitem" onclick="window.open('');"></div>-->
     </div>
     <div class="main">
+        <h2>Other References</h2>
+        <ul>
+            <li><a href="https://quuxplusone.github.io/blog/2018/08/23/stop-cascading-errors/">Stopping
+                the cascade of errors</a></li>
+        </ul>
         <h2>Template Programming</h2>
         <p>I have described early generic programming in Cfront, which used templates as a way to introduce type-save
             generic typing to the language, as gruesome. There were probably several reasons, but the one I remember
@@ -88,35 +93,98 @@
             <li>Map efficiently to native hardware storage. Efficiency is ambiguous, I should be able to specify either
                 efficient storage size or efficient computation speed.
             </li>
-            <li>They should be type, including size, safe.</li>
+            <li>They should be type safe, including size, safe.</li>
         </ul>
-        </p>
-        <p>
-        <pre class="line-numbers"><code class="language-c++">template &lt;typename T, size_t wdith&gt;
-struct hw_register {
-    typedef T base_type;
-    static constexpr int storage_bits = _storage_bits;
-
-    hw_register() : value{0} {}
-
-    base_type value;
-};</code></pre>
+        <p>Let's start small, if naive. This will allow us to discuss some basic principles, then we can move on.
+            Consider this structure:
         </p>
         <pre class="line-numbers" data-src="examples/hw_template_1.h"><code class="language-c++"></code></pre>
-
+        <p>This allows us to set up a PDP-8 register by declaring <code class="language-c++">hw_register&lt;uint16_t,12&gt;
+            pc;</code>. We have set the register size to 12 bits, but it falls short of our type safety and storage
+            efficiency. But it does demonstrate a template programming technique. Lines 3 and 4 show how "variables" are
+            stored in classes and structs as type definitions or static constexper integral values. We don't need this
+            inside the struct declaration because we could use the actual template parameters. But with these values
+            "stored" in the struct we can access the type with <code class="language-c++">pc.base_type</code> and the
+            numeric value with <code class="language-c++">pc.width</code>. However we need some whay to go from the
+            register size to the most efficient storage for speed or size; and we have to do this at compile time. This
+            is where template meta programming shines through the arcane syntax. First lets compute the standard C++
+            type size that we need to store the register value in.
+        </p>
+        <pre class="line-numbers" data-src="examples/required_base_size_1.h"><code class="language-c++"></code></pre>
+        <p><code class="language-c++">required_base_size()</code> is a function that takes the register size in bits as
+            a template parameter (ensuring it is constant and defined at compile time). Line 3 ensures the code won't
+            try to declare registers larger than 64 bits, which is currently the largest integral type supported by C++.
+            Lines 4 and 5 determine if an 8 bit value is sufficiently large, and if so returns 8. Lines 6 and 7 do the
+            same for 16 bits, and so on. Line 13 will never be reached, but it keeps the compiler happy. Yes, more work
+            is needed. But now we can go from a PDP-8 register size to a size that is supported now we just need to
+            generate a type. If you aren't used to declarative programming this may look strange, but this is how we do
+            it.
+        </p>
+        <pre class="line-numbers" data-src="examples/required_base_type_1.h"><code class="language-c++"></code></pre>
+        <p>Template meta programmers create lots of structs. Lines 1 to 3 specify the base template which will satisfy
+            all invokations not satisfied by an more specific matching templates. Lines 5 through 23 are the four
+            specialized themplates that will satisfy invocations with template parameters of 8, 16, 32 or 64. Line 25 is
+            a sample invocation of a 12 bit register. But this still doesn't allow us to select type optimization. For
+            that we need to add some more code.</p>
+        <pre class="line-numbers" data-src="examples/required_base_type_2.h"><code class="language-c++"></code></pre>
+        <p>This code takes advantage of the uint_fast<em>n</em>_t and uint_least<em>n</em>_t types which will provide
+            the implementation determined type with the fastest operation or smallest sufficient size respectively.
+            With this we can refactor the hardware register declaration. There two mores tool we will want before we
+            start that process.
+        </p>
+        <p>One of the issues with having many complex template types is controlling when a particular type should be
+            handled by a function. A practice has evolved that deals with this and also makes code more readable. One
+            tool is type support<sup>[<a href="#4_type_support">4</a>]</sup>, the other is policy based design
+            using policy classes. First type support:</p>
+        <pre class="line-numbers" data-src="examples/type_support_1.h"><code class="language-c++"></code></pre>
+        <p>Lines 1 to 3 are the generic template definition. It says that unless otherwise indicated the answer to "is
+            this a hw_register type?" is false. It is invoked like this:
+            <code class="language-c++">is_hw_register&lt;some_type&gt;::value</code>. But that can be a little
+            cumbersome, so we add the syntactic sugar at lines 5 and 6 which allow us to accomplish the same thig with
+            <code class="language-c++">is_hw_register_v&lt;some_type&gt;</code>. Lines 8 to 10 are a forward declaration
+            of my hw_register. You don't need to forward declare to use type support, but we don't need the full
+            declaration for this example. Lines 12 to 14 tell the compiler that a template signature of <code
+                    class="language-c++">hw_register&lt;int,typename,typname&gt;</code> is a hardware register. This
+            will let us define a copy constructor at lines 16 and 17 that will only accept hw_register types; and that
+            intent is clear. This may seem like a lot of work for this simple situation, but this is a powerful syntax
+            that you should be familiar with. You will have noticed the my hw_register declaration has two policy
+            classes. Let's look at those now.
+        </p>
+        <p>Policy classes are structures which contain types or values that are used to control some behavior of the
+            class using them. My hw_register class has an output and storage policy classes:</p>
+        <pre class="line-numbers" data-src="examples/policy_class_1.h"><code class="language-c++"></code></pre>
+        <p>The output policy is controls how register contents are printed to streams. Doing it this way encapsulates
+            the printing function in the library but also allows users of the library some control. The storage policy
+            has a flags that controll storage size checking for size safety, and one to allow registers to be
+            <em>fast</em> or <em>least</em> types. So now we can fully declare hw_register. I have left out a couple of
+            supporting types, but those are in the repository and use these techniques.</p>
+        <pre class="line-numbers" data-src="examples/hw_template_2.h"><code class="language-c++"></code></pre>
+        <p>So there you have it; how I wrote my hardware register type to be flexible, type save and easy to read. But
+            also notice, no <b>new</b>, no <b>delete</b>, no garbage collection and no memory leaks. More on that in
+            another article.</p>
         <hr>
 
         <dl>
-            <dt><a name="1_turing_complete">[1] Turing Complete</a></dt>
-            <dd>In <a href="https://en.wikipedia.org/wiki/Turing_completeness">computability theory</a>, a system of
-                data-manipulation rules (such as a computer's instruction set, a programming language, or a cellular
-                automaton) is said to be Turing complete or computationally universal if it can be used to simulate any
-                Turing machine
+            <dt><a name="1_turing_complete">[1]</a> <a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing
+                Complete</a></dt>
+            <dd>In computability theory, a system of data-manipulation rules (such as a computer's instruction set, a
+                programming language, or a cellular automaton) is said to be Turing complete or computationally
+                universal if it can be used to simulate any Turing machine.
             </dd>
-            <dt><a name="2_procedural_programming">[2] <a href="https://en.wikipedia.org/wiki/Procedural_programming">
-                Procedural Programming</a></a></dt>
-            <dt><a name="3_declarative_programming">[3] <a href="https://en.wikipedia.org/wiki/Declarative_programming">
-                Declarative Programming</a></a></dt>
+            <dt><a name="2_procedural_programming">[2]</a> <a
+                    href="https://en.wikipedia.org/wiki/Procedural_programming">
+                Procedural Programming</a></dt>
+            <dd>Procedural programming is a programming paradigm, derived from structured programming, based upon the
+                concept of the procedure call.
+            </dd>
+            <dt><a name="3_declarative_programming">[3]</a> <a
+                    href="https://en.wikipedia.org/wiki/Declarative_programming">
+                Declarative Programming</a></dt>
+            <dd>In computer science, declarative programming is a programming paradigm that expresses the logic of a
+                computation without describing its control flow.
+            </dd>
+            <dt><a name="4_type_support">[4]</a> <a href="https://en.cppreference.com/w/cpp/types">Type Support</a></dt>
+            <dd>(basic types, RTTI, type traits)</dd>
         </dl>
     </div>
 </div>
