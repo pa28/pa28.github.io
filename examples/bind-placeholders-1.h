@@ -1,5 +1,3 @@
 ...
-status_lights.
-write_data(std::bind(&chassis::status_lights_writer, this, std::placeholders::_1)
-);
+status_lights.write_data(std::bind(&chassis::status_lights_writer, this, std::placeholders::_1));
 ...
