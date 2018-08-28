@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "Why C++?"
 date:   2018-08-20 14:04:06 -0400
 categories: C++
@@ -18,4 +19,3 @@ into the future.
 
 In some of the articles I will write here I will detail how I use some of the
 modern features of C++. Maybe someone will find these useful or interesting.
-
