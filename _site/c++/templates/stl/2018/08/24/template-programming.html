@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Template Programming | PA28</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Template Programming" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I have described early generic programming in Cfront, which used templates as a way to introduce type-safe generic typing to the language, as gruesome. There were probably several reasons, but the one I remember best was due to Cfront being a pre-processor." />
+<meta property="og:description" content="I have described early generic programming in Cfront, which used templates as a way to introduce type-safe generic typing to the language, as gruesome. There were probably several reasons, but the one I remember best was due to Cfront being a pre-processor." />
+<link rel="canonical" href="http://localhost:4000/c++/templates/stl/2018/08/24/template-programming.html" />
+<meta property="og:url" content="http://localhost:4000/c++/templates/stl/2018/08/24/template-programming.html" />
+<meta property="og:site_name" content="PA28" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-08-24T14:04:06-04:00" />
+<script type="application/ld+json">
+{"description":"I have described early generic programming in Cfront, which used templates as a way to introduce type-safe generic typing to the language, as gruesome. There were probably several reasons, but the one I remember best was due to Cfront being a pre-processor.","@type":"BlogPosting","url":"http://localhost:4000/c++/templates/stl/2018/08/24/template-programming.html","headline":"Template Programming","dateModified":"2018-08-24T14:04:06-04:00","datePublished":"2018-08-24T14:04:06-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/c++/templates/stl/2018/08/24/template-programming.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="PA28" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">PA28</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/projects/">Projects</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Template Programming</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-08-24T14:04:06-04:00" itemprop="datePublished">Aug 24, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I have described early generic programming in Cfront, which used templates as a way to introduce type-safe
+generic typing to the language, as gruesome. There were probably several reasons, but the one I remember
+best was due to Cfront being a pre-processor.
+<!--more-->
+Cfront translated C++ into C which was then compiled by the C
+compiler. This was quite an efficient way to get people working with C++. The C compiler, of course, knew
+nothing about C++. So, unfortunately when template support was added, Cfront would have to emit all of the
+possible variations of structures or functions that the C++ code body could possibly need. This could be
+a huge volume of code which then had to be compiled. It wasn’t very pretty. That problem was quickly fixed,
+and eventually C++ got its own native compiler, and things have been improving ever since.</p>
+
+<p>As the template programming situation improved, and features were added to the language over time, eventually
+the C++ template language was proven to be
+<a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.14.3670">Turing Complete</a><sup>1</sup>, which led to some
+<a href="http://matt.might.net/articles/c++-template-meta-programming-with-lambda-calculus/">interesting developments</a>.
+Those interesting developments aside, what is important about this proof is that we know that when programming in
+C++ we are actually using two languages to specify our program. One is procedural<sup>2</sup> which we use to
+specify and reason about the program algorithm we are coding. The other is declarative<sup>3</sup> which we
+use to specify and reason about how the program should be built. This paring is an incredibly powerful tool for
+the programmer who knows how to use
+them effectively together. Being effective can be difficult if you are unfamiliar with the general
+principles of declarative programming and the C++ template specification language in particular. But things
+are getting better. There is more and more literature and training available, but it does help if you have
+had some experience with a declarative language. An equally important point which must not be overlooked is
+that the program that is written in the templating language is run entirely at compile time. This means that
+whatever features or checks you introduce into the program through templates will have no run-time overhead.
+This is also a very valuable tool for the programmer.</p>
+
+<h3 id="getting-to-the-code">Getting to the Code</h3>
+
+<p>I will be getting to the code shortly, but when providing sample code it is useful to have a goal in
+mind. People often use made-up trivial examples. There is nothing wrong with that, but it does allow one to
+gloss over the kind of very specific requirement that would really demonstrate the feature under descussion.
+So I’m going to use one of my hobby projects, PiDP-8-sim, which is hosted here in my repository. I’m going
+to provide some background, but if you aren’t really interested feel free to <a href="#getting_to_code">skip ahead</a>.
+You can always come back if you find you are missing something.</p>
+
+<p>PiDP-8-sim is a derivative of <a href="http://simh.trailing-edge.com/">sim-h</a>, an historical simulator for old computer
+systems. PiDP-8-sim is designed to work with the <a href="http://obsolescence.wixsite.com/obsolescence/pidp-8">PiDP-8</a>
+DEC PDP-8I emulator that uses
+a Raspbery-Pi running sim-h. Since sim-h is written in C, much of PiDP-8-sim is C mixed with C++, all of
+which is several (if not many) years old. C hasn’t changed much over that time, but C++ certainly has.
+Looking at the code today it is obvious that the program could be made better by using features available
+from C++17. In this article I will go into the development and final implementation of the hardware
+registers and memory storage.</p>
+
+<p>One approach would be to write everything to directly support the PDP-8 architecture. But Obsolescence
+Guaranteed is producing a PiDP-11/70 emulator; it would be nice to be able to use the same code for that or
+other projects. That is why I have decided to make a generic header only library that I can use for the
+PiDP-8 and easily extend to other computer types.</p>
+
+<h3 id="hardware-registers">Hardware Registers<a name="getting_to_code"></a></h3>
+
+<p>So writing software to implement generic hardware registers. What might our requirements be? I quickly
+developed the following list:</p>
+<ul>
+  <li>Able to specify register size, keeping in mind that the PDP-8 has strange (for today) register sizes.</li>
+  <li>Map efficiently to native hardware storage. Efficiency is ambiguous, I should be able to specify either
+efficient storage size or efficient computation speed.</li>
+  <li>They should be type — including size — safe.</li>
+</ul>
+
+<p>Let’s start small, if naive. This will allow us to discuss some basic principles, then we can move on.
+Consider this structure:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">wdith</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">hw_register</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="n">T</span> <span class="n">base_type</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">storage_bits</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+
+    <span class="n">hw_register</span><span class="p">()</span> <span class="o">:</span> <span class="n">value</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span> <span class="p">{}</span>
+
+    <span class="n">base_type</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">};</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This allows us to set up a PDP-8 register by declaring <code class="highlighter-rouge">hw_register&lt;uint16_t,12&gt;pc;</code>. We have set the register size
+to 12 bits, but it falls short of our type safety and storage
+efficiency. But it does demonstrate a template programming technique. Lines 3 and 4 show how “variables” are
+stored in classes and structs as type definitions or static constexper integral values. We don’t need this
+inside the struct declaration because we could use the actual template parameters. But with these values
+“stored” in the struct we can access the type with <code class="highlighter-rouge">pc.base_type</code> and the
+numeric value with <code class="highlighter-rouge">pc.width</code>. However we need some whay to go from the
+register size to the most efficient storage for speed or size; and we have to do this at compile time. This
+is where template meta programming shines through the arcane syntax. First lets compute the standard C++
+type size that we need to store the register value in.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">bits</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">required_base_size</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">bits</span> <span class="o">&lt;=</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">,</span> <span class="s">"Register size not supported."</span><span class="p">);</span>
+    <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n">bits</span> <span class="o">&lt;=</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">;</span>
+    <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n">bits</span> <span class="o">&lt;=</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">;</span>
+    <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n">bits</span> <span class="o">&lt;=</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">;</span>
+    <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n">bits</span> <span class="o">&lt;=</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p><code class="highlighter-rouge">required_base_size()</code> is a function that takes the register size in bits as
+a template parameter (ensuring it is constant and defined at compile time). Line 3 ensures the code won’t
+try to declare registers larger than 64 bits, which is currently the largest integral type supported by C++.
+Lines 4 and 5 determine if an 8 bit value is sufficiently large, and if so returns 8. Lines 6 and 7 do the
+same for 16 bits, and so on. Line 13 will never be reached, but it keeps the compiler happy. Yes, more work
+is needed. But now we can go from a PDP-8 register size to a size that is supported now we just need to
+generate a type. If you aren’t used to declarative programming this may look strange, but this is how we do
+it.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="code"><pre><span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span> <span class="n">required_width</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span> <span class="p">{</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint8_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint16_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint32_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint64_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">typedef</span> <span class="k">typename</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">required_base_size</span><span class="o">&lt;</span><span class="mi">12</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">base_type</span> <span class="n">base_type_12</span><span class="p">;</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Template meta programmers create lots of structs. Lines 1 to 3 specify the base template which will satisfy
+all invokations not satisfied by an more specific matching templates. Lines 5 through 23 are the four
+specialized themplates that will satisfy invocations with template parameters of 8, 16, 32 or 64. Line 25 is
+a sample invocation of a 12 bit register. But this still doesn’t allow us to select type optimization. For
+that we need to add some more code.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+</pre></td><td class="code"><pre><span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span> <span class="n">required_width</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">optimize_speed</span> <span class="o">=</span> <span class="nb">true</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span> <span class="p">{</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">,</span> <span class="nb">true</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint_fast8_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">,</span> <span class="nb">false</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint_least8_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">,</span> <span class="nb">true</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint_fast16_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">,</span> <span class="nb">false</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint_least16_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">,</span> <span class="nb">true</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint_fast32_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">,</span> <span class="nb">false</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint_least32_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">,</span> <span class="nb">true</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint_fast64_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">,</span> <span class="nb">false</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="kt">uint_least64_t</span> <span class="n">base_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">typedef</span> <span class="k">typename</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">required_base_size</span><span class="o">&lt;</span><span class="mi">12</span><span class="o">&gt;</span><span class="p">(),</span><span class="nb">true</span><span class="o">&gt;::</span><span class="n">base_type</span> <span class="n">base_type_fast_12</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">typename</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">required_base_size</span><span class="o">&lt;</span><span class="mi">12</span><span class="o">&gt;</span><span class="p">(),</span><span class="nb">false</span><span class="o">&gt;::</span><span class="n">base_type</span> <span class="n">base_type_least_12</span><span class="p">;</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This code takes advantage of the <code class="highlighter-rouge">uint_fastN_t</code> and <code class="highlighter-rouge">uint_leastN_t</code> types which will provide
+the implementation determined type with the fastest operation or smallest sufficient size respectively.
+With this we can refactor the hardware register declaration. There two mores tool we will want before we
+start that process.</p>
+
+<p>One of the issues with having many complex template types is controlling when a particular type should be
+handled by a function. A practice has evolved that deals with this and also makes code more readable. One
+tool is type support<sup>4</sup>, the other is policy based design
+using policy classes. First type support:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">is_hw_register</span> <span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">false_type</span> <span class="p">{</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_hw_register_v</span> <span class="o">=</span> <span class="n">is_hw_register</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span> <span class="n">_storage_bits</span><span class="p">,</span> <span class="k">typename</span> <span class="n">_output_policy</span> <span class="o">=</span> <span class="n">default_register_output_policy</span><span class="p">,</span>
+        <span class="k">typename</span> <span class="n">_store_policy</span> <span class="o">=</span> <span class="n">default_register_store_policy</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">hw_register</span><span class="p">;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span> <span class="n">bits</span><span class="p">,</span> <span class="k">typename</span> <span class="n">out_pol</span><span class="p">,</span> <span class="k">typename</span> <span class="n">store_pol</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">is_hw_register</span><span class="o">&lt;</span><span class="n">hw_register</span><span class="o">&lt;</span><span class="n">bits</span><span class="p">,</span> <span class="n">out_pol</span><span class="p">,</span> <span class="n">store_pol</span><span class="o">&gt;&gt;</span> <span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">true_type</span> <span class="p">{</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_register_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+<span class="k">explicit</span> <span class="n">hw_register</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">);</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Lines 1 to 3 are the generic template definition. It says that unless otherwise indicated the answer to “is
+this a hw_register type?” is false. It is invoked like this: <code class="highlighter-rouge">is_hw_register&lt;some_type&gt;::value</code>. But that can
+be a little cumbersome, so we add the syntactic sugar at lines 5 and 6 which allow us to accomplish the same
+thing with <code class="highlighter-rouge">is_hw_register_v&lt;some_type&gt;</code>. Lines 8 to 10 are a forward declaration
+of my hw_register. You don’t need to forward declare to use type support, but we don’t need the full
+declaration for this example. Lines 12 to 14 tell the compiler that a template signature of
+<code class="highlighter-rouge">hw_register&lt;int,typename,typname&gt;</code> is a hardware register. This
+will let us define a copy constructor at lines 16 and 17 that will only accept hw_register types; and that
+intent is clear. This may seem like a lot of work for this simple situation, but this is a powerful syntax
+that you should be familiar with. You will have noticed the my hw_register declaration has two policy
+classes. Let’s look at those now.</p>
+
+<p>Policy classes are structures which contain types or values that are used to control some behavior of the
+class using them. My hw_register class has an output and storage policy classes:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre><span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span> <span class="n">_radix</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_width</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">char</span> <span class="n">_fill</span> <span class="o">=</span> <span class="sc">'\0'</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">_show_base</span> <span class="o">=</span> <span class="nb">false</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">register_output_policy</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">radix</span> <span class="o">=</span> <span class="n">_radix</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="n">_width</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">char</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">_fill</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">show_base</span> <span class="o">=</span> <span class="n">_show_base</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">default_register_output_policy</span> <span class="o">:</span> <span class="n">register_output_policy</span><span class="o">&lt;&gt;</span> <span class="p">{</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="kt">bool</span> <span class="n">_check_storage_size</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">_optimize_speed</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">register_store_policy</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">check_storage_size</span> <span class="o">=</span> <span class="n">_check_storage_size</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">optimize_speed</span> <span class="o">=</span> <span class="n">_optimize_speed</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">default_register_store_policy</span> <span class="o">:</span>
+    <span class="n">register_store_policy</span><span class="o">&lt;</span><span class="nb">true</span><span class="p">,</span><span class="nb">true</span><span class="o">&gt;</span> <span class="p">{};</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>The output policy is controls how register contents are printed to streams. Doing it this way encapsulates
+the printing function in the library but also allows users of the library some control. The storage policy
+has a flags that controll storage size checking for size safety, and one to allow registers to be
+<em>fast</em> or <em>least</em> types. So now we can fully declare hw_register. I have left out a couple of
+supporting types, but those are in the repository and use these techniques.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span> <span class="n">_storage_bits</span><span class="p">,</span> <span class="k">typename</span> <span class="n">_output_policy</span><span class="p">,</span> <span class="k">typename</span> <span class="n">_store_policy</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">hw_register</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="n">_output_policy</span> <span class="n">output_policy</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="n">_store_policy</span> <span class="n">store_policy</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="k">typename</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">required_base_size</span><span class="o">&lt;</span><span class="n">_storage_bits</span><span class="o">&gt;</span><span class="p">(),</span>
+            <span class="n">store_policy</span><span class="o">::</span><span class="n">optimize_speed</span><span class="o">&gt;::</span><span class="n">base_type</span> <span class="n">base_type</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">base_type_bits</span> <span class="o">=</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">base_type</span><span class="o">&gt;::</span><span class="n">digits</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">storage_bits</span> <span class="o">=</span> <span class="n">_storage_bits</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="n">base_type</span> <span class="n">mask</span> <span class="o">=</span>
+                    <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">base_type</span><span class="o">&gt;</span><span class="p">((</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">storage_bits</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">hw_register</span><span class="p">()</span> <span class="o">:</span> <span class="n">value</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span> <span class="p">{}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span> <span class="k">typename</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_register_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+
+    <span class="k">explicit</span> <span class="n">hw_register</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="o">:</span>
+        <span class="n">value</span><span class="p">{</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">base_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">other</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="p">)}</span> <span class="p">{}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span> <span class="k">typename</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_register_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+
+    <span class="n">hw_register</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="n">store_policy</span><span class="o">::</span><span class="n">check_storage_size</span> <span class="o">||</span>
+            <span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">storage_bits</span> <span class="o">&lt;=</span> <span class="n">storage_bits</span><span class="p">),</span>
+                      <span class="s">"Slice too wide for register storage."</span><span class="p">);</span>
+        <span class="k">static_assert</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">base_type_bits</span> <span class="o">&lt;=</span> <span class="n">base_type_bits</span><span class="p">,</span>
+                      <span class="s">"Slice too wide for register base type."</span><span class="p">);</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">base_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">value</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span> <span class="k">typename</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+    <span class="k">explicit</span> <span class="n">hw_register</span><span class="p">(</span><span class="n">T</span> <span class="n">init_value</span><span class="p">)</span> <span class="o">:</span>
+        <span class="n">value</span><span class="p">{</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">base_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">init_value</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="p">)}</span> <span class="p">{}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span>
+        <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+    <span class="n">hw_register</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">T</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">base_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">base_type</span> <span class="k">operator</span><span class="p">()()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span>
+        <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_slice_spec_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+    <span class="k">auto</span> <span class="k">operator</span><span class="p">[](</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">slice_spec</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">static_assert</span><span class="p">(</span>
+                <span class="n">not</span> <span class="n">store_policy</span><span class="o">::</span><span class="n">check_storage_size</span> <span class="o">||</span>
+                    <span class="p">((</span><span class="n">T</span><span class="o">::</span><span class="n">width</span> <span class="o">+</span> <span class="n">T</span><span class="o">::</span><span class="n">offset</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">storage_bits</span><span class="p">),</span>
+                <span class="s">"Slice too wide for register storage."</span><span class="p">);</span>
+        <span class="k">static_assert</span><span class="p">((</span><span class="n">T</span><span class="o">::</span><span class="n">width</span> <span class="o">+</span> <span class="n">T</span><span class="o">::</span><span class="n">offset</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">base_type_bits</span><span class="p">,</span>
+                      <span class="s">"Slice too wide for register base type."</span><span class="p">);</span>
+        <span class="k">typedef</span> <span class="k">typename</span> <span class="n">required_base_type</span><span class="o">&lt;</span><span class="n">required_base_size</span><span class="o">&lt;</span>
+                <span class="n">T</span><span class="o">::</span><span class="n">width</span> <span class="o">+</span> <span class="n">T</span><span class="o">::</span><span class="n">offset</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">base_type</span> <span class="n">new_base_type</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="n">hw_slice</span> <span class="o">&lt;</span> <span class="n">new_base_type</span><span class="p">,</span> <span class="n">T</span><span class="o">::</span><span class="n">width</span><span class="p">,</span> <span class="n">T</span><span class="o">::</span><span class="n">offset</span> <span class="o">&gt;</span> <span class="p">{</span><span class="n">value</span><span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span>
+        <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_slice_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+    <span class="n">hw_register</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">slice</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">static_assert</span><span class="p">(</span>
+                <span class="n">not</span> <span class="n">store_policy</span><span class="o">::</span><span class="n">check_storage_size</span> <span class="o">||</span>
+                    <span class="p">((</span><span class="n">T</span><span class="o">::</span><span class="n">width</span> <span class="o">+</span> <span class="n">T</span><span class="o">::</span><span class="n">offset</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">storage_bits</span><span class="p">),</span>
+                <span class="s">"Slice too wide for register storage."</span><span class="p">);</span>
+        <span class="k">static_assert</span><span class="p">((</span><span class="n">T</span><span class="o">::</span><span class="n">width</span> <span class="o">+</span> <span class="n">T</span><span class="o">::</span><span class="n">offset</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">base_type_bits</span><span class="p">,</span>
+                <span class="s">"Slice too wide for register base type."</span><span class="p">);</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span> <span class="o">&amp;</span> <span class="o">~</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">base_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">mask</span><span class="p">))</span> <span class="o">|</span>
+            <span class="p">(</span><span class="n">slice</span><span class="p">.</span><span class="n">value_in_place</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">print_on</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">ostream</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">ostream</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setbase</span><span class="p">(</span><span class="n">output_policy</span><span class="o">::</span><span class="n">radix</span><span class="p">)</span>
+                       <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="n">output_policy</span><span class="o">::</span><span class="n">width</span><span class="p">)</span>
+                       <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setfill</span><span class="p">(</span><span class="n">output_policy</span><span class="o">::</span><span class="n">fill</span><span class="p">)</span>
+                       <span class="o">&lt;&lt;</span> <span class="n">value</span>
+                       <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">dec</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span>
+        <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_register_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">==</span> <span class="n">other</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span>
+        <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_register_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">!=</span> <span class="n">other</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span>
+        <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_register_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="n">other</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span>
+        <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_register_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="n">other</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span>
+        <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_register_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;=</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="o">=</span>
+        <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">is_hw_register_v</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">&gt;=</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">explicit</span> <span class="k">operator</span> <span class="kt">bool</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="k">protected</span><span class="o">:</span>
+    <span class="n">base_type</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>So there you have it; how I wrote my hardware register type to be flexible, type save and easy to read. But
+also notice, no <strong>new</strong>, no <strong>delete</strong>, no garbage collection and no memory leaks. More on that in another article.</p>
+
+<h2 id="references">References</h2>
+
+<ol>
+  <li><a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing Complete</a>: In computability theory, a system of
+data-manipulation rules (such as a computer’s instruction set, a programming language, or a cellular automaton)
+is said to be Turing complete or computationally universal if it can be used to simulate any Turing machine.</li>
+  <li><a href="https://en.wikipedia.org/wiki/Procedural_programming">Procedural Programming</a>: Procedural programming is a
+programming paradigm, derived from structured programming, based upon the concept of the procedure call.</li>
+  <li><a href="https://en.wikipedia.org/wiki/Declarative_programming">Declarative Programming</a>: In computer science,
+declarative programming is a programming paradigm that expresses the logic of a computation without describing
+its control flow.</li>
+  <li><a href="https://en.cppreference.com/w/cpp/types">Type Support</a>: (basic types, RTTI, type traits)</li>
+</ol>
+
+<p><a href="https://quuxplusone.github.io/blog/2018/08/23/stop-cascading-errors/">Stopping the cascade of errors</a>: Arthur O’Dwyer</p>
+
+  </div><a class="u-url" href="/c++/templates/stl/2018/08/24/template-programming.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">PA28</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">PA28</li><li><a class="u-email" href="mailto:richard.buckley@ieee.org">richard.buckley@ieee.org</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/pa28"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">pa28</span></a></li><li><a href="https://www.twitter.com/pa28"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">pa28</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>The open source musings of a career closed source developer approaching retirement.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

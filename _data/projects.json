@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Antlr4",
+    "url": "https://github.com/pa28/antlr4/",
+    "fork-from": "antlr/antlr4",
+    "fork-from-url": "https://github.com/antlr/antlr4",
+    "description": [
+      "ANTLR (ANother Tool for Language Recognition) is a powerful parser generator for reading, processing, executing, ",
+      "or translating structured text or binary files. I've made this fork to implement C++17 support for my own projects."
+    ],
+    "tags": ["antlr","C++17"]
+  },
+  {
+    "name": "BITX40 Sketch",
+    "url": "https://github.com/pa28/bitx40",
+    "fork-from": "amunters/bitx40",
+    "fork-from-url": "https://github.com/amunters/bitx40",
+    "description": [
+      "BITX40 sketch for Raduino, forked for the odd time I make changes. So far all my pull requests have been ",
+      "accepted so you should probably just go to the upstream repository."
+      ]
+  },
+  {
+    "name": "ESP 8266",
+    "url": "https://github.com/pa28/ESP_8266",
+    "description": [
+      "Arduino sketches for ESP 8266 based devices. a sketch which measures and reposrt temperature and humidity to ",
+      "a REST service. The sketch uses the ESP 8266 deep sleep mode between readings to reduce current consumption."
+    ]
+  },
+  {
+    "name": "EzNetwork",
+    "url": "https://github.com/pa28/EzNetwork",
+    "description": [
+      "A C++ library with the goal of easing the task of managing network connections. Since the C++ standard library ",
+      "lacks nework support. Hoping C++20 will provide so I only do work required to support my on projects."
+    ]
+  },
+  {
+    "name": "ParameterLib",
+    "url": "https://github.com/pa28/ParameterLib",
+    "description": "An include only, template based C++ wrapper around GNU getopt_long."
+  },
+  {
+    "name": "PiDP-8-sim",
+    "url": "https://github.com/pa28/PiDP-8-sim",
+    "description": [
+      "A PDP-8 simulator for the Raspberry Pi aimed at running efficiently on the A+ model and working with the PiDP8 ",
+      "kit. Work on this project is suspended in favour of PiDP-8-sim-cpp/"
+    ]
+  },
+  {
+    "name": "PiDP-8-sim-cpp",
+    "url": "https://github.com/pa28/PiDP-8-sim-cpp",
+    "description": [
+      "A complete re-write of my PDP-8 simulator project for the Raspberry Pi; still aimed at running efficiently on ",
+      "the A+ model and working with the PiDP8 kit. Currently porting to C++17. This work will feature in my Why C++ ",
+      "articles."
+    ]
+  }
+]

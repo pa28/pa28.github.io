@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {%- if site.data.projects.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "" }}</h2>
+    <ul class="post-list">
+      {%- for i in site.data.projects -%}
+      <li>
+        <h3>
+          <a class="post-link" href="{{ i.url | relative_url }}">
+            {{ i.name | escape }}
+          </a>
+        </h3>
+        {%- if i.fork-from -%}
+          <h4>Forked from: <a href="{{ i.fork-from-url | relative_url }}">{{ i.fork-from | escape }}</a>
+          </h4>
+        {%- endif -%}
+        <p>
+          {%- for d in i.description -%}
+            {{ d }}
+          {%- endfor -%}
+        </p>
+      </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+
+</div>
