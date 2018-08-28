@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "std::function - std::bind - std::placeholders"
 date:   2018-08-27 14:04:06 -0400
 categories: C++ Templates STL

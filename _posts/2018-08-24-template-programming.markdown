@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "Template Programming"
 date:   2018-08-24 14:04:06 -0400
 categories: C++ Templates STL
