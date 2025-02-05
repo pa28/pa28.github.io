@@ -1,23 +1,23 @@
 # Repository
 
 When projects are ready I usually make them available in my repositories:
-* One hosted by [GemFury](https://gemfury.com/). 
+* One hosted by [GemFury](https://gemfury.com/) which is deprecated. 
 * One self hosted on a virtual public server [repo.vfrott.ca](https://repo.vfrott.ca).
 
 I have made meta-packages, packages that you can download from git hub and install to set up access to the package repository.
 
 ## [repo.vfrott.ca](https://repo.vfrott.ca)
 
-This repository is served by a three meta-packages for the architectures I build for:
+This repository is served by a four meta-packages for the architectures I build for:
 <dl>
+  <dt>vfrott-bookworm</dt>
+  <dd>Stable packages for Raspberry Pi OS Bullseye.</dd>
   <dt>vfrott-bullseye</dt>
   <dd>Stable packages for Raspberry Pi OS Bullseye 32 and 64 bit (armhf, arm64)</dd>
   <dt>vfrott-buster</dt>
-  <dd>Stable packages for Raspberry Pi OS Buster 32 bit only (armhf)</dd>
+  <dd>Stable packages for Raspberry Pi OS Buster 32 bit only (armhf). This OS is no longer receiving updates, expect this part of the repository to stop receiving updates, then be removed in the future.</dd>
   <dt>vfrott-stable</dt>
   <dd>Stable packages for Debian derived distributions, currently Intel/AMD only.</dd>
-  <dt>vfrott-bookworm</dt>
-  <dd>Stable packages for Raspberry Pi OS Bullseye.</dd>
 </dl>
 
 Checksums for the meta packages are listed on the repository webpage and are copied here for added confidence.
