@@ -1,9 +1,5 @@
 ## Current Projects
 
-### Co-Pilot
-
-Nice of GitHub to listen and allow removal of co-pilot. Would be nicer if they adobpt an on-in rather than an op-out default.
-
 ### [Package Availability](/Repository)
 
 When I create packages for my projects they will be available in
