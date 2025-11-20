@@ -1,8 +1,8 @@
 # Command Line Course
 
-This directory contains file associated with my Unix/Linux command line course. The primary audience is
-Amateur Radio operators using Raspberry Pi but most of the material will apply to mose Unix derived command
-though applicability will decay as the OS appears further down this list:
+This directory contains files associated with my Unix/Linux command line course. The primary audience is
+Amateur Radio operators using Raspberry Pi but most of the material will apply to most Unix derived command
+lines though applicability will decay as the OS appears further down this list:
 
 1. Raspberry Pi OS
 2. Debian derived Linux
@@ -11,6 +11,10 @@ though applicability will decay as the OS appears further down this list:
 5. Mac OS
 6. QNX
 7. etc.
+
+This file contains general guidance on how to access the command line on a Raspberry Pi. If you are more
+interested in learning the command line on a standard desktop Linux/Unix machine most installations will
+with everything needed built in or easily installed.
 
 ## Accessing the Command Line.
 
