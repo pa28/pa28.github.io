@@ -31,7 +31,7 @@ A Desktop system is what most people consider a computer. It has a system unit w
 connected to a display monitory, keyboard and mouse. It may also be connected to a network and other devices.
 For the purposes of this course I include laptop computers in the Desktop category.
 
-If your Raspberry Pi is a full Desktop System you are all set.
+If your Raspberry Pi (or the Linux/Unix system you want to learn) is a full Desktop System you are all set.
 
 ### Headless System
 In some situations it is desirable to run a computer without the monitor, keyboard and mouse. These are often 
