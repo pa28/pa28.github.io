@@ -7,9 +7,10 @@ though applicability will decay as the OS appears further down this list:
 1. Raspberry Pi OS
 2. Debian derived Linux
 3. Red Hat derived Linux
-4. BSD Derived Unix
+4. BSD/System V Derived Unix
 5. Mac OS
 6. QNX
+7. etc.
 
 ## Accessing the Command Line.
 
