@@ -11,6 +11,6 @@ welcome message, the last login information and a command prompt (in green).
 ## Raspberry Pi Connect
 
 In this example the user is logging in to host _argon_ using
-[Raspberry Pi Connect](https://connect.raspberrypi.com).
+[Raspberry Pi Connect](https://www.raspberrypi.com/software/connect/).
 
-![SSH Login](https://pa28.github.io/docs/assets/Screenshot_2025-11-21_18-18-57.png)
+![Connect Login](https://pa28.github.io/docs/assets/Screenshot_2025-11-21_18-18-57.png)
