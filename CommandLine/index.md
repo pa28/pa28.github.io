@@ -14,7 +14,7 @@ lines though applicability will decay as the OS appears further down this list:
 
 This file contains general guidance on how to access the command line on a Raspberry Pi. If you are more
 interested in learning the command line on a standard desktop Linux/Unix machine most installations will
-with everything needed built in or easily installed.
+have everything needed is built in or easily installed.
 
 ## Accessing the Command Line.
 
