@@ -11,6 +11,7 @@ welcome message, the last login information and a command prompt (in green).
 ## Raspberry Pi Connect
 
 In this example the user is logging in to host _argon_ using
-[Raspberry Pi Connect](https://www.raspberrypi.com/software/connect/).
+[Raspberry Pi Connect](https://www.raspberrypi.com/software/connect/). In this case all the
+introductory information is omitted. Raspberry Pi Connect bypasses the normal login process.
 
 ![Connect Login](https://pa28.github.io/docs/assets/Screenshot_2025-11-21_18-18-57.png)
