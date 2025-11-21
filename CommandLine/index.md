@@ -38,6 +38,7 @@ For the purposes of this course I include laptop computers in the Desktop catego
 If your Raspberry Pi (or the Linux/Unix system you want to learn) is a full Desktop System you are all set.
 
 ### Headless System
+
 In some situations it is desirable to run a computer without the monitor, keyboard and mouse. These are often 
 refereed to as *headless* systems. In these cases the user interacts with the computer software through
 specialized controls or from a separate desktop system via the network.
