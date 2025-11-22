@@ -62,3 +62,7 @@ installed, or they can be easily installed.
 Windows comes with a built-in SSH client installed by default. You can access it through the Command Prompt or
 [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install). You could also use the [Windows
 Subsystem for Linux (WSL)](https://ubuntu.com/desktop/wsl). These options are beyond the scope of this course.
+
+### Examples
+
+[Examples of connecting to a Raspberry Pi shell.](ShellSession)
